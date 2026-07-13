@@ -281,7 +281,7 @@ async function submitEmail(e){
 
   try {
     // Subscribe to Kit via their API
-    const res = await fetch("https://api.convertkit.com/v3/forms/189c36bdb8/subscribe", {
+    const res = await fetch("https://matriarch.kit.com/189c36bdb8", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
