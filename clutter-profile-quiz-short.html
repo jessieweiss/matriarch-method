@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clutter Profile — a 4-minute self-assessment</title>
+<meta name="description" content="A free 4-minute self-assessment from the Matriarch Method: discover how you relate to objects, visibility, and order — and what your home should do about it.">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2834825960233652');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2834825960233652&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-tint:#E9EAE0; --spruce:#2C3A33; --spruce-soft:#54655B;
+    --sage:#8FA28C; --ochre:#A9742F; --ochre-deep:#8C5E20; --line:#C9CBBE; --max:720px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+  body{background:var(--paper);color:var(--spruce);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:1.05rem;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem;}
+  header{padding:1.3rem 0;border-bottom:1px solid var(--line);}
+  header .wrap{display:flex;justify-content:space-between;align-items:baseline;}
+  .wordmark{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--spruce);text-decoration:none;}
+  .wordmark span{color:var(--ochre-deep);}
+  .kicker{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.18;}
+  h1{font-size:clamp(1.9rem,5vw,2.7rem);}
+  h2{font-size:clamp(1.45rem,3.6vw,1.9rem);}
+  .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem;}
+  .eyebrow::before{content:"";width:1.8rem;height:1px;background:var(--ochre);}
+  .btn{display:inline-block;background:var(--ochre);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;padding:.9rem 1.7rem;border-radius:999px;border:none;cursor:pointer;font-family:inherit;}
+  .btn:hover{background:var(--ochre-deep);}
+  .btn.ghost{background:transparent;color:var(--spruce);border:1.5px solid var(--spruce);}
+  .btn.ghost:hover{background:var(--spruce);color:var(--paper);}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:4px;}
+  .screen{display:none;padding:3.2rem 0 4.5rem;}
+  .screen.active{display:block;}
+  .intro p{max-width:36em;margin:1rem 0;color:var(--spruce-soft);}
+  .intro .lede{font-size:1.15rem;color:var(--spruce);}
+  .meta-row{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 2rem;font-size:.9rem;color:var(--spruce-soft);}
+  .meta-row div{border-left:2px solid var(--sage);padding-left:.8rem;}
+  .progress{height:5px;background:var(--paper-tint);border-radius:99px;overflow:hidden;margin:0 0 .7rem;}
+  .progress i{display:block;height:100%;background:var(--sage);width:0;transition:width .25s ease;}
+  .q-count{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;margin-bottom:1.6rem;}
+  .q-text{font-family:'Fraunces',serif;font-size:clamp(1.3rem,3.4vw,1.65rem);font-weight:500;margin-bottom:1.7rem;max-width:24em;}
+  .opts{display:grid;gap:.7rem;}
+  .opt{text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:1rem 1.2rem;font:inherit;color:var(--spruce);cursor:pointer;transition:border-color .15s ease,background .15s ease;}
+  .opt:hover{border-color:var(--sage);background:#FBFAF6;}
+  .opt.selected{border-color:var(--ochre);background:#FBF6EC;}
+  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+  .back{background:none;border:none;font:inherit;font-weight:700;color:var(--spruce-soft);cursor:pointer;padding:.5rem .2rem;}
+  .back:hover{color:var(--spruce);}
+  .back[disabled]{visibility:hidden;}
+  .result-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:2rem;margin:1.8rem 0;}
+  .result-card .label{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);}
+  .result-card h2{margin:.4rem 0 .3rem;}
+  .truth{font-family:'Fraunces',serif;font-style:italic;font-size:1.18rem;color:var(--spruce-soft);margin-bottom:1rem;}
+  .result-card p{color:var(--spruce-soft);margin-bottom:1rem;}
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.3rem;border-top:1px solid var(--line);padding-top:1.3rem;}
+  .spec h3{font-size:.82rem;letter-spacing:.11em;text-transform:uppercase;font-family:'Atkinson Hyperlegible',sans-serif;font-weight:700;margin-bottom:.5rem;}
+  .spec .do h3{color:var(--ochre-deep);}
+  .spec .avoid h3{color:var(--spruce-soft);}
+  .spec ul{list-style:none;}
+  .spec li{font-size:.94rem;color:var(--spruce-soft);padding:.28rem 0 .28rem 1.1rem;position:relative;}
+  .spec .do li::before{content:"—";position:absolute;left:0;color:var(--sage);}
+  .spec .avoid li::before{content:"—";position:absolute;left:0;color:var(--line);}
+  .hybrid-card{background:var(--paper-tint);border:1px solid var(--line);border-radius:12px;padding:1.6rem 2rem;margin:1.4rem 0;}
+  .secondary-line{margin:1.2rem 0 0;color:var(--spruce-soft);}
+  .disclaimer{font-size:.88rem;color:var(--spruce-soft);border-left:3px solid var(--sage);padding-left:1rem;margin:2rem 0;max-width:38em;}
+  .cta-block{background:var(--spruce);color:var(--paper);border-radius:12px;padding:2rem;margin-top:2.2rem;}
+  .cta-block h2{color:#fff;margin-bottom:.6rem;}
+  .cta-block p{color:#D7DCD2;margin-bottom:1.4rem;max-width:34em;}
+  .cta-block .row{display:flex;gap:1rem;flex-wrap:wrap;}
+  .cta-block .btn.ghost{color:var(--paper);border-color:var(--paper);}
+  .cta-block .btn.ghost:hover{background:var(--paper);color:var(--spruce);}
+  .retake{margin-top:1.6rem;}
+  footer{border-top:1px solid var(--line);padding:1.8rem 0;font-size:.86rem;color:var(--spruce-soft);}
+  @media (max-width:600px){.spec{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="#">The Clutter <span>Profile</span></a>
+    <span class="kicker">The Matriarch Method</span>
+  </div>
+</header>
+
+<section class="screen intro active" id="intro">
+  <div class="wrap">
+    <p class="eyebrow">A free self-assessment</p>
+    <h1>You don't have a clutter problem. You have a clutter pattern.</h1>
+    <p class="lede">Not "messy versus tidy." This 4-minute profile looks at what visibility does to your nervous system, what your objects are doing for you, and why conventional organizing advice may have failed you. Design works from the bottom up — and this is where it starts.</p>
+    <div class="meta-row">
+      <div><strong>12 questions</strong><br>about 4 minutes</div>
+      <div><strong>5 archetypes</strong><br>plus hybrid pairings</div>
+      <div><strong>No wrong answers</strong><br>nothing here needs fixing</div>
+    </div>
+    <p>Go with your first instinct — there's no timer, and there are no wrong answers. Answer for how you actually live, not how you wish things looked.</p>
+    <p style="margin-top:1.6rem;"><button class="btn" onclick="startQuiz()">Find my clutter profile</button></p>
+  </div>
+</section>
+
+<section class="screen" id="quiz">
+  <div class="wrap">
+    <div class="progress"><i id="bar"></i></div>
+    <p class="q-count" id="qcount"></p>
+    <h2 class="q-text" id="qtext"></h2>
+    <div class="opts" id="opts"></div>
+    <div class="nav-row">
+      <button class="back" id="backBtn" onclick="goBack()">← Back</button>
+      <span class="kicker" id="hint">Choose the answer closest to true</span>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="email-gate">
+  <div class="wrap">
+    <p class="eyebrow">Your profile is ready</p>
+    <h1 style="margin-bottom:.5rem;">One last step — where should we send your results?</h1>
+    <p style="color:var(--spruce-soft);margin-bottom:2rem;">Enter your email to see your Clutter Profile and receive the free design guide with specific recommendations for your pattern.</p>
+
+    <form id="emailForm" style="display:flex;flex-direction:column;gap:1rem;max-width:420px;">
+      <div style="display:flex;flex-direction:column;gap:.4rem;">
+        <label for="firstName" style="font-size:.85rem;font-weight:700;color:var(--spruce);">First name</label>
+        <input type="text" id="firstName" placeholder="Your first name"
+          style="padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;background:#fff;color:var(--spruce);outline:none;">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.4rem;">
+        <label for="emailInput" style="font-size:.85rem;font-weight:700;color:var(--spruce);">Email address</label>
+        <input type="email" id="emailInput" placeholder="you@email.com" required
+          style="padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:8px;font-family:inherit;font-size:1rem;background:#fff;color:var(--spruce);outline:none;">
+      </div>
+      <button type="button" onclick="submitEmail()" class="btn" id="submitBtn" style="margin-top:.5rem;width:100%;font-size:1rem;">
+        Show me my Clutter Profile →
+      </button>
+      <p id="emailMsg" style="font-size:.88rem;display:none;"></p>
+    </form>
+
+    <!-- Hidden iframe to post to Kit without CORS issues -->
+    <iframe id="kitFrame" name="kitFrame" style="display:none;" title="Kit form submission"></iframe>
+
+    <p style="margin-top:1.2rem;font-size:.8rem;color:var(--spruce-soft);">No spam. Unsubscribe anytime. Your results will also be emailed to you.</p>
+  </div>
+</section>
+
+<section class="screen" id="results">
+  <div class="wrap">
+    <p class="eyebrow">Your clutter profile</p>
+    <div id="resultBody"></div>
+    <p class="disclaimer">The Clutter Profile is a design tool, not a diagnostic. It describes how you relate to objects and space so your home can be built around you — nothing more, and nothing about you needs fixing.</p>
+    <div class="cta-block">
+      <h2>Your profile is a design brief. Here's where it leads.</h2>
+      <p>I write about designing homes around real nervous systems — neuroaesthetics, bottom-up design, and what your space should actually be doing for your brain — every week at <em>Divergent By Design</em>. It's free.</p>
+      <div class="row">
+        <a class="btn" href="https://divergentbydesign.substack.com/subscribe" target="_blank">Read Divergent By Design →</a>
+      </div>
+      <p style="margin-top:1.4rem;color:#D7DCD2;font-size:.92rem;">If you want to go deeper — into your full pairing, your sensory processing, and a room-by-room plan built around your actual nervous system — that's what <em>The Sensory Home</em> course is for.</p>
+      <div class="row" style="margin-top:.6rem;">
+        <a class="btn ghost" href="https://jessieweiss.github.io/matriarch-method/sensory-home-presale.html" target="_blank">Learn about The Sensory Home →</a>
+      </div>
+    </div>
+    <p class="retake"><button class="back" onclick="location.reload()" style="visibility:visible;">↺ Retake the profile</button></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Jessica Weiss · Matriarch interiors + architecture · <em>Design for every mind.</em></div>
+</footer>
+
+<script>
+// Short form: 12 highest-signal questions from the full 30-item profile.
+// A=Visual Processor, B=Minimal Regulator, C=Control Seeker, D=Creative Accumulator, E=Memory Keeper
+const QUESTIONS = [
+ {q:"When you're looking for something you use often, you prefer it to be…",o:{A:"Out where I can see it",B:"Put away so surfaces feel calm",C:"In the same specific place every time",D:"Near related tools or activities",E:"Somewhere safe, because it's meaningful"}},
+ {q:"How do you feel about open shelving?",o:{A:"I find it relieving — it helps me remember",B:"It overwhelms me — too visually busy",C:"It's fine, if it's organized consistently",D:"It's great for tools and supplies",E:"I like it only for displaying special things"}},
+ {q:"When things are put away but you don't know where they are…",o:{A:"I forget they exist",B:"I feel calmer anyway",C:"I feel unsettled",D:"I get frustrated later",E:"I worry something important is lost"}},
+ {q:"When you walk into a room with a lot going on visually, you usually…",o:{A:"Notice details that remind you what needs to happen",B:"Feel mentally overloaded",C:"Feel the urge to straighten or fix it",D:"Feel curious or inspired",E:"Feel drawn to certain meaningful items"}},
+ {q:"When someone says \u201cjust put it away,\u201d your biggest obstacle is usually…",o:{A:"If it's hidden, I'll forget it",B:"It takes too much effort to maintain",C:"If it's not done right, it bothers me",D:"I'm in the middle of too many things",E:"I don't want to lose something meaningful"}},
+ {q:"You're most likely to abandon an organizing approach when…",o:{A:"You can't see what's there",B:"It requires too many steps",C:"It isn't consistent",D:"It limits flexibility",E:"It asks you to let go of meaningful things"}},
+ {q:"Decluttering feels…",o:{A:"Risky — I might forget things",B:"Visually relieving",C:"Necessary, but stressful",D:"Limiting — like losing options",E:"Emotional — like letting go of meaning"}},
+ {q:"If someone reorganizes your things without asking, you mostly feel…",o:{A:"Disoriented — I can't find anything",B:"Relieved — it looks calmer",C:"Unsettled — my system is disrupted",D:"Annoyed — it slows me down",E:"Hurt — it changes what matters"}},
+ {q:"Objects in your home mostly act like…",o:{A:"Reminders and cues",B:"Stimuli — too much, or just right",C:"Signals of order or disorder",D:"Tools and materials for doing things",E:"Memory containers"}},
+ {q:"You're most bothered when…",o:{A:"Things disappear from sight",B:"Things are visible on surfaces",C:"Things are misplaced",D:"Things are unavailable when you need them",E:"Things are discarded without your say"}},
+ {q:"You feel safest when your environment is…",o:{A:"Easy to read at a glance",B:"Visually calm",C:"Predictable and consistent",D:"Well-resourced for your needs",E:"Meaningful and personal"}},
+ {q:"At a deep level, objects in your home help you…",o:{A:"Remember and stay oriented",B:"Feel regulated and calm",C:"Feel secure and in control",D:"Do what you love to do",E:"Stay connected to meaning"}}
+];
+
+const PROFILES = {
+ A:{name:"The Visual Processor",truth:"\u201cIf I can see it, I can remember it and feel oriented.\u201d",
+   body:"Visibility isn't a bad habit for you — it's a cognitive support. Visible objects work as reminders, anchors, and orientation; hidden storage tends to mean forgotten storage. What others call mess is often functional sequencing, and what overwhelms you isn't having too much — it's not knowing what exists.",
+   dos:["Shallow, open, visible storage","Clear bins, trays, and pegboards","Zones instead of concealment","Display that's intentional and bounded"],
+   avoids:["Deep drawers and over-concealment","\u201cClean\u201d systems that erase your cues","Storage that hides what you'll forget"]},
+ B:{name:"The Minimal Regulator",truth:"\u201cVisual quiet helps my nervous system settle.\u201d",
+   body:"For you, minimalism isn't a value system or an aesthetic — it's a physiological need. Visual noise competes for your attention and drains you; visual simplicity creates relief. You don't need things perfect or even perfectly sorted. You need them quiet.",
+   dos:["Concealed, high-function storage","Clear surfaces as standing policy","Soft minimalism — calm, not empty","Loose systems are fine behind closed doors"],
+   avoids:["Open shelving and visual abundance","\u201cDisplay for warmth\u201d pressure","Rigid perfection in place of good-enough calm"]},
+ C:{name:"The Control Seeker",truth:"\u201cIf everything has a place, I feel safe.\u201d",
+   body:"Order isn't about appearances for you — it's about trusting your environment. Predictability is the regulation: knowing where things are and that they'll stay there. Things out of place don't just annoy you; they destabilize you, and even hidden disorder can hum in the background if you know it's there.",
+   dos:["Clear categories and labels","The same rules in every room","Logical adjacencies — things live near their use","Systems that are repeatable and consistent"],
+   avoids:["Flexible or ambiguous storage","Multi-use zones without boundaries","\u201cJust tuck it somewhere\u201d"]},
+ D:{name:"The Creative Accumulator",truth:"\u201cVariety and access fuel me.\u201d",
+   body:"Your objects aren't excess — they're possibility. Tools, materials, books, and options represent your future self and your creative identity, which is why editing can feel like genuine loss. You're not disorganized; you're over-resourced, and the answer is capacity with structure, not reduction.",
+   dos:["Deep storage with clear categorization","Dedicated project zones — studio logic","Containers that allow fullness without chaos","Seasonal purge cycles instead of constant restraint"],
+   avoids:["Forced minimalism and tiny storage","Scarcity-based organizing","Moral pressure to \u201clet go\u201d"]},
+ E:{name:"The Memory Keeper",truth:"\u201cObjects hold meaning; removing them feels like loss.\u201d",
+   body:"Your relationship to objects is about continuity — of people, eras, and selves. Discarding can feel like erasing, which is why clutter often grows after loss, moves, or big transitions. This is one of the most misunderstood profiles, and the answer is never aggressive decluttering. It's reverence with boundaries.",
+   dos:["Memory zones — boxes, drawers, cabinets with intention","Curated display of what matters most","Honor-before-edit: process first, decide second","Containment over elimination"],
+   avoids:["Aggressive or deadline-driven purging","Shame-based organizing","\u201cJust take a photo and toss it\u201d"]}
+};
+
+const HYBRIDS = {
+ "AB":{name:"The Low-Demand Regulator",blurb:"\u201cI need visual calm with the least possible effort.\u201d You want things out of sight, but fussy systems fail you fast. Your design rules: big bins, shallow drawers, drop zones, and concealment without categorization. Avoid labels, micro-sorting, and anything that demands maintenance."},
+ "AC":{name:"The Visible Controller",blurb:"\u201cI need to see my things — and know exactly where they go.\u201d Visibility supports your memory while consistency keeps you safe, so you need both at once. Your design rules: open shelving with strict categories, labels, and the same placement logic everywhere. Avoid hidden storage without rules, and visual chaos without structure."},
+ "BD":{name:"The Contained Creative",blurb:"\u201cI need abundance — but I can't look at it all at once.\u201d You cycle between accumulating and purging because two real needs are competing. Your design rules: deep storage for tools, closed cabinets for bulk, and dedicated creative zones with firm visual boundaries. Avoid minimalist mandates and displaying everything."},
+ "BE":{name:"The Gentle Keeper",blurb:"\u201cI want to keep meaningful things without being overwhelmed by them.\u201d Your design rules: curated memory boxes, hidden-but-intentional storage, and editing as ritual rather than chore. Avoid open memory displays everywhere, and anyone rushing your letting-go."},
+ "CD":{name:"The Structured Accumulator",blurb:"\u201cI want a lot — but it has to make sense.\u201d Possibility and logic, together. Your design rules: modular, expandable systems with clear categorization and room to grow. Avoid vague zones and storage that can't expand with you."},
+ "AE":{name:"The Transitional Holder",blurb:"\u201cI'm in between who I was and who I'm becoming.\u201d Piles and half-sorted objects often mean a life in transition, not a failed system. Your design rules: temporary containers, grace zones, and time-limited storage. Avoid building permanent systems too early — and any shaming language, including your own."}
+};
+
+let answers = [];
+let idx = 0;
+let order = [];
+
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
+
+function startQuiz(){
+  order = QUESTIONS.map(()=>shuffle(["A","B","C","D","E"]));
+  answers = new Array(QUESTIONS.length).fill(null);
+  idx = 0;
+  show("quiz"); render();
+}
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function render(){
+  const q = QUESTIONS[idx];
+  document.getElementById("bar").style.width = ((idx)/QUESTIONS.length*100)+"%";
+  document.getElementById("qcount").textContent = "Question "+(idx+1)+" of "+QUESTIONS.length;
+  document.getElementById("qtext").textContent = q.q;
+  const box = document.getElementById("opts");
+  box.innerHTML = "";
+  order[idx].forEach(key=>{
+    const b = document.createElement("button");
+    b.className = "opt"+(answers[idx]===key?" selected":"");
+    b.textContent = q.o[key];
+    b.onclick = ()=>{ answers[idx]=key; idx<QUESTIONS.length-1 ? (idx++, render()) : finish(); };
+    box.appendChild(b);
+  });
+  document.getElementById("backBtn").disabled = idx===0;
+}
+
+function goBack(){ if(idx>0){ idx--; render(); } }
+
+// Store computed results globally so we can show them after email capture
+let pendingResults = null;
+
+function finish(){
+  const tally = {A:0,B:0,C:0,D:0,E:0};
+  answers.forEach(k=>{ if(k) tally[k]++; });
+  const sorted = Object.entries(tally).sort((a,b)=>b[1]-a[1]);
+  const [pKey,pScore] = sorted[0];
+  const [sKey,sScore] = sorted[1];
+
+  // Store results for after email capture
+  pendingResults = { pKey, pScore, sKey, sScore };
+
+  // Show email gate instead of results
+  show("email-gate");
+}
+
+function submitEmail() {
+  const firstName = document.getElementById("firstName").value.trim();
+  const email = document.getElementById("emailInput").value.trim();
+  const btn = document.getElementById("submitBtn");
+  const msg = document.getElementById("emailMsg");
+
+  if (!email) {
+    msg.style.display = "block";
+    msg.style.color = "#c0392b";
+    msg.textContent = "Please enter your email address.";
+    return;
+  }
+
+  btn.textContent = "Sending…";
+  btn.disabled = true;
+
+  // Build a form and submit it to Kit via hidden iframe (bypasses CORS)
+  const form = document.createElement("form");
+  form.method = "POST";
+  form.action = "https://app.convertkit.com/forms/9553704/subscriptions";
+  form.target = "kitFrame";
+  form.style.display = "none";
+
+  const fields = {
+    "api_key": "0JOBPWxgwEDJ9FDlCCmG0g",
+    "email_address": email,
+    "first_name": firstName,
+  };
+
+  Object.entries(fields).forEach(([key, val]) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = key;
+    input.value = val;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+
+  // Show results after short delay — Kit processes in background
+  setTimeout(showResults, 1500);
+
+  // Meta Pixel — Lead event fires when email is captured
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead');
+  }
+}
+
+// Listen for watchKitForm polls removed — using iframe approach instead
+
+function showResults(){
+  const { pKey, pScore, sKey, sScore } = pendingResults;
+  const P = PROFILES[pKey], S = PROFILES[sKey];
+  const hybridKey = [pKey,sKey].sort().join("");
+  const H = HYBRIDS[hybridKey];
+  const strongSecondary = sScore >= Math.max(2, Math.ceil(pScore*0.5));
+
+  let html = `
+    <div style="background:var(--paper-tint);border-left:3px solid var(--sage);padding:1rem 1.2rem;margin-bottom:1.8rem;border-radius:0 8px 8px 0;">
+      <p style="font-size:.9rem;color:var(--spruce-soft);margin:0;"><strong style="color:var(--spruce);">How to use your profile:</strong> Your primary profile is below. Download the free Clutter Profile design guide below \u2014 find your profile\u2019s specific recommendations and use it as your first design brief.</p>
+    </div>
+    <div class="result-card">
+      <span class="label">Primary profile · ${pScore} of ${QUESTIONS.length}</span>
+      <h2>${P.name}</h2>
+      <p class="truth">${P.truth}</p>
+      <p>${P.body}</p>
+      <div class="spec">
+        <div class="do"><h3>Design with it</h3><ul>${P.dos.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+        <div class="avoid"><h3>Works against you</h3><ul>${P.avoids.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+      </div>
+    </div>`;
+
+  if(strongSecondary){
+    if(H){
+      html += `
+      <div class="hybrid-card">
+        <span class="label" style="color:var(--ochre-deep);font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;">Your profiles may form a pairing</span>
+        <p style="color:var(--spruce-soft);margin:.5rem 0 .8rem;">When two profiles are both strong, they may combine into a named pairing with its own design prescription — what to prioritize, what to avoid, and how to resolve the tension between your two dominant needs. The 12-question version doesn't have enough resolution to name yours confidently, but the full 30-question Clutter Profile™ can.</p>
+        <p style="color:var(--spruce-soft);margin:.5rem 0 .8rem;">To explore what your pairing might mean — along with your full sensory profile and a room-by-room plan — <em>The Sensory Home</em> course is a good next step.</p>
+        <div style="background:var(--spruce);border-radius:8px;padding:1.2rem 1.4rem;margin-top:.4rem;">
+          <p style="color:#D7DCD2;font-size:.9rem;margin-bottom:.8rem;">The full Clutter Profile™ (30 questions) gives you the depth needed to identify your pairing accurately — including its name and complete design prescription.</p>
+          <a href="https://matriarch.kit.com/products/the-matriarch-method-clutter-profile" target="_blank" style="display:inline-block;background:var(--ochre);color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:.7rem 1.3rem;border-radius:999px;font-family:inherit;">Take the full Clutter Profile™ →</a>
+        </div>
+      </div>`;
+    }
+  } else {
+    html += `<p class="secondary-line">Your answers point strongly to a single profile \u2014 your secondary leanings were spread fairly evenly across the others.</p>`;
+  }
+
+  document.getElementById("resultBody").innerHTML = html;
+  document.getElementById("bar").style.width = "100%";
+  show("results");
+}
+</script>
+</body>
+</html>
