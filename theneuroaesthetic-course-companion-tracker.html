@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Companion — The Neuro Aesthetic</title>
+<meta name="description" content="Your Course Companion for The Neuro Aesthetic — dates, progress, and quick reflections across all six modules, in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-tint:#E9EAE0; --spruce:#2C3A33; --spruce-soft:#54655B;
+    --sage:#8FA28C; --sage-deep:#5F7359; --ochre:#A9742F; --ochre-deep:#8C5E20; --line:#828674; --max:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+  body{background:var(--paper);color:var(--spruce);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:1.03rem;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem;}
+  header{padding:1.3rem 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:20;}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;}
+  .wordmark{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--spruce);text-decoration:none;}
+  .wordmark span{color:var(--ochre-deep);}
+  .logo-img{height:2.3rem;width:auto;display:block;}
+  .kicker{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.18;}
+  h1{font-size:clamp(1.9rem,5vw,2.6rem);}
+  h2{font-size:clamp(1.35rem,3.4vw,1.7rem);}
+  h3{font-size:1.15rem;}
+  h4{font-size:1rem;font-weight:600;font-family:'Atkinson Hyperlegible',sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--spruce-soft);}
+  .eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;}
+  .eyebrow::before{content:"";width:1.8rem;height:1px;background:var(--ochre);}
+  a{color:var(--ochre-deep);}
+  .btn{display:inline-block;background:var(--ochre-deep);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:.75rem 1.4rem;border-radius:999px;border:none;cursor:pointer;font-family:inherit;}
+  .btn:hover{background:var(--spruce);}
+  .btn.ghost{background:transparent;color:var(--spruce);border:1.5px solid var(--spruce);}
+  .btn.ghost:hover{background:var(--spruce);color:var(--paper);}
+  .btn.small{padding:.5rem 1rem;font-size:.85rem;}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ochre);outline-offset:2px;border-radius:4px;}
+
+  nav.jump{display:flex;gap:.4rem;flex-wrap:wrap;padding:.8rem 0;}
+  nav.jump a{font-size:.82rem;font-weight:700;color:var(--spruce-soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;background:var(--paper-tint);}
+  nav.jump a:hover{border-color:var(--sage);color:var(--spruce);}
+
+  .intro{padding:2.4rem 0 1rem;}
+  .intro p{max-width:38em;margin:.9rem 0;color:var(--spruce-soft);}
+  .intro .lede{font-size:1.12rem;color:var(--spruce);}
+  .note-box{background:var(--paper-tint);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;margin:1.4rem 0;font-size:.94rem;color:var(--spruce-soft);}
+  .note-box strong{color:var(--spruce);}
+
+  section.block{padding:2.6rem 0 1rem;border-top:2px solid var(--spruce);}
+  .field-row{margin-bottom:1.2rem;max-width:34em;}
+  .field-row label{display:block;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--spruce-soft);margin-bottom:.4rem;}
+  .field-row .hint{font-size:.85rem;color:var(--spruce-soft);margin-top:.35rem;font-style:italic;}
+  textarea, input[type=text]{width:100%;font:inherit;font-size:.95rem;color:var(--spruce);background:#fff;border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;resize:vertical;}
+  textarea{min-height:2.6rem;}
+  textarea::placeholder, input[type=text]::placeholder{color:var(--spruce-soft);opacity:.75;}
+
+  .action-row{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;margin:1.2rem 0;}
+
+  /* walkthrough recap rows */
+  .room-row{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;align-items:start;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid var(--line);}
+  .room-row:last-of-type{border-bottom:none;}
+  .room-name{font-family:'Fraunces',serif;font-size:1.02rem;padding-top:.5rem;}
+
+  /* deliverable rows */
+  .deliverable-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1rem;}
+  .deliverable-card .dtop{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.8rem;}
+  .deliverable-card h3{margin:0;}
+  .deliverable-card .dmod{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);}
+  .status-opts{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .status-opt{display:flex;align-items:center;gap:.4rem;font-size:.88rem;border:1px solid var(--line);border-radius:8px;padding:.45rem .8rem;cursor:pointer;background:var(--paper);}
+  .status-opt input{accent-color:var(--ochre);}
+  .status-opt.selected-done{border-color:var(--sage-deep);}
+
+  /* module check-in cards */
+  .module-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.8rem 1.8rem 2rem;margin:0 0 1.8rem;scroll-margin-top:5.5rem;}
+  .module-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:.2rem;}
+  .module-num{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:500;color:var(--sage-deep);line-height:1;margin-bottom:.2rem;}
+  .module-title-input{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--spruce);}
+  .no-deliverable{font-size:.88rem;color:var(--spruce-soft);font-style:italic;}
+  .date-pair{display:flex;gap:1.4rem;flex-wrap:wrap;margin:1rem 0;}
+  .date-pair .field-row{margin-bottom:0;flex:1;min-width:11rem;}
+  .deliverable-check{display:flex;align-items:center;gap:.6rem;font-size:.95rem;margin:1rem 0;cursor:pointer;}
+  .deliverable-check input{width:1.05rem;height:1.05rem;accent-color:var(--ochre);}
+
+  /* cohort */
+  .prompt-card{background:var(--paper-tint);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:.9rem;font-size:.98rem;color:var(--spruce);}
+  .prompt-card em{color:var(--spruce-soft);font-style:italic;}
+
+  footer{border-top:1px solid var(--line);padding:1.8rem 0 3rem;font-size:.86rem;color:var(--spruce-soft);}
+
+  @media print{
+    button, nav.jump{display:none!important;}
+    header{position:static;}
+    body{background:#fff;}
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+    .note-box,.deliverable-card,.module-card,.prompt-card,.room-row,.date-pair{break-inside:avoid;}
+    @page{margin:0.6in;}
+  }
+  @media (max-width:600px){.room-row{grid-template-columns:1fr;}.date-pair{flex-direction:column;gap:1rem;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="#top"><img class="logo-img" src="data:image/png;base64,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" alt="The Neuro Aesthetic logo">The Neuro <span>Aesthetic</span></a>
+    <span class="kicker">Course Companion</span>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="jump" aria-label="Jump to section">
+    <a href="#cover">Cover</a>
+    <a href="#walkthrough">Sensory Walkthrough</a>
+    <a href="#deliverables">The Three Deliverables</a>
+    <a href="#module-1">Module 1</a>
+    <a href="#module-2">Module 2</a>
+    <a href="#module-3">Module 3</a>
+    <a href="#module-4">Module 4</a>
+    <a href="#module-5">Module 5</a>
+    <a href="#module-6">Module 6</a>
+    <a href="#cohort">Cohort Check-In</a>
+  </nav>
+</div>
+
+<main class="wrap" id="top">
+
+  <!-- ============ COVER ============ -->
+  <section class="intro" id="cover">
+    <div class="eyebrow">Introduced in Module 00</div>
+    <h1>Course Companion</h1>
+    <p class="lede">This isn't here to hold you accountable. It's here so your working memory doesn't have to carry dates, progress, and half-formed reflections on top of everything else in your life — offload it here instead, and come back to it whenever you need to remember where you are.</p>
+    <p>Fill it in here as you go, or print it out and keep it on your desk — both work. Nothing below is timed, and there's no wrong pace.</p>
+    <div class="note-box">
+      <strong>Your answers save automatically</strong> in this browser as you type — close the tab and come back later on the same device, and everything will still be here.
+    </div>
+    <div class="note-box">
+      <strong>Working across devices, or want a permanent copy?</strong> Use <strong>Save My Companion as a PDF</strong> any time — top or bottom of this page — to save a fully-formatted copy of everything you've filled in. Keep it, print it, or reprint a fresh blank copy later.
+    </div>
+
+    <div class="field-row">
+      <label for="cc-name">Name</label>
+      <input type="text" id="cc-name" placeholder="Your name">
+    </div>
+    <div class="field-row">
+      <label for="cc-start-date">Start date</label>
+      <input type="text" id="cc-start-date" placeholder="MM/DD/YYYY">
+    </div>
+    <div class="field-row">
+      <label for="cc-why">Why I'm doing this now</label>
+      <input type="text" id="cc-why" placeholder="One line — the sentence from Module 00">
+    </div>
+    <div class="field-row">
+      <label for="cc-first-room">The room I most want to change first <span style="text-transform:none;font-weight:400;">(optional)</span></label>
+      <input type="text" id="cc-first-room" placeholder="One line">
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-savepdf" type="button">&#8681; Save My Companion as a PDF</button>
+      <button class="btn ghost small" id="clear-btn" type="button">Clear my saved answers</button>
+    </div>
+  </section>
+
+  <!-- ============ SENSORY WALKTHROUGH RECAP ============ -->
+  <section class="block" id="walkthrough">
+    <div class="module-top">
+      <div><h2>Bring your Sensory Walkthrough here</h2></div>
+    </div>
+    <p style="color:var(--spruce-soft);max-width:38em;margin:.8rem 0 1.6rem;">If you did the Sensory Walkthrough checklist — the founding-member bonus you got when you purchased — this is where those notes come back into play. You don't need to redo it or bring the whole thing over, item by item. Just pull the highlight forward: for each room, the one thing that's still not working, in a few words. That's what carries into your Sensory Profile and Clutter Profile in Module 1, and into your Design Brief in Module 3.</p>
+    <p style="color:var(--spruce-soft);max-width:38em;margin:0 0 1.6rem;">Didn't do the walkthrough, or don't have it in front of you? Skip this section for now — nothing later depends on it being filled in.</p>
+
+    
+      <div class="room-row">
+        <div class="room-name">The Entry</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-entry">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-entry" placeholder="e.g. no landing zone for shoes/bags">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">Living Room / Main Space</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-living">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-living" placeholder="e.g. no visual quiet spot, overhead lighting only">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">The Kitchen</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-kitchen">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-kitchen" placeholder="e.g. every surface always in use">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">The Bedroom(s)</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-bedroom">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-bedroom" placeholder="e.g. can't get it fully dark">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">The Bathroom</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-bathroom">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-bathroom" placeholder="e.g. cold, harsh overhead light">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">Children's Rooms</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-kids">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-kids" placeholder="e.g. no regulation corner">
+        </div>
+      </div>
+      <div class="room-row">
+        <div class="room-name">Home Office / Workspace</div>
+        <div class="field-row" style="margin-bottom:0;">
+          <label for="wt-office">What's not working yet <span style="text-transform:none;font-weight:400;">(a few words, from your walkthrough)</span></label>
+          <input type="text" id="wt-office" placeholder="e.g. no acoustic separation from the rest of the house">
+        </div>
+      </div>
+
+    <div class="field-row" style="margin-top:1.6rem;">
+      <label for="wt-priority">My top 2-3 priority rooms, from this recap</label>
+      <input type="text" id="wt-priority" placeholder="e.g. Entry, Kitchen, Bedroom">
+      <p class="hint">Pulled from the rooms above — yours to decide, not auto-suggested.</p>
+    </div>
+  </section>
+
+  <!-- ============ THREE DELIVERABLES ============ -->
+  <section class="block" id="deliverables">
+    <div class="module-top">
+      <div><h2>The three deliverables</h2></div>
+    </div>
+    <p style="color:var(--spruce-soft);max-width:38em;margin:.8rem 0 1.6rem;">Just orientation, not a checklist yet — three milestones across the whole course, so you can see the shape of it before you're inside any one module.</p>
+
+    <div class="deliverable-card">
+      <div class="dtop"><h3>Sensory Profile Summary</h3><span class="dmod">Module 1</span></div>
+      <div class="status-opts">
+        <label class="status-opt"><input type="radio" name="deliverable-1" value="not-started"> Not started</label>
+        <label class="status-opt"><input type="radio" name="deliverable-1" value="in-progress"> In progress</label>
+        <label class="status-opt"><input type="radio" name="deliverable-1" value="done"> Done</label>
+      </div>
+    </div>
+    <div class="deliverable-card">
+      <div class="dtop"><h3>Design Brief</h3><span class="dmod">Module 3</span></div>
+      <div class="status-opts">
+        <label class="status-opt"><input type="radio" name="deliverable-2" value="not-started"> Not started</label>
+        <label class="status-opt"><input type="radio" name="deliverable-2" value="in-progress"> In progress</label>
+        <label class="status-opt"><input type="radio" name="deliverable-2" value="done"> Done</label>
+      </div>
+    </div>
+    <div class="deliverable-card">
+      <div class="dtop"><h3>Living Document</h3><span class="dmod">Module 6</span></div>
+      <div class="status-opts">
+        <label class="status-opt"><input type="radio" name="deliverable-3" value="not-started"> Not started</label>
+        <label class="status-opt"><input type="radio" name="deliverable-3" value="in-progress"> In progress</label>
+        <label class="status-opt"><input type="radio" name="deliverable-3" value="done"> Done</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-1">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">01</div>
+          <h3>Module 1 <span style="color:var(--spruce-soft);font-weight:400;">— Profiles Summary</span></h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m1-start">Date started</label>
+          <input type="text" id="m1-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m1-done">Date completed</label>
+          <input type="text" id="m1-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <label class="deliverable-check"><input type="checkbox" id="m1-deliverable-done"> Key deliverable for this module — <strong>Sensory Profile Summary</strong> — complete</label>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m1-reflection">One-line reflection</label>
+        <input type="text" id="m1-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-2">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">02</div>
+          <h3>Module 2</h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m2-start">Date started</label>
+          <input type="text" id="m2-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m2-done">Date completed</label>
+          <input type="text" id="m2-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <p class="no-deliverable">No formal deliverable this module.</p>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m2-reflection">One-line reflection</label>
+        <input type="text" id="m2-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-3">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">03</div>
+          <h3>Module 3 <span style="color:var(--spruce-soft);font-weight:400;">— The Design Brief</span></h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m3-start">Date started</label>
+          <input type="text" id="m3-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m3-done">Date completed</label>
+          <input type="text" id="m3-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <label class="deliverable-check"><input type="checkbox" id="m3-deliverable-done"> Key deliverable for this module — <strong>Design Brief</strong> — complete</label>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m3-reflection">One-line reflection</label>
+        <input type="text" id="m3-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-4">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">04</div>
+          <h3>Module 4</h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m4-start">Date started</label>
+          <input type="text" id="m4-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m4-done">Date completed</label>
+          <input type="text" id="m4-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <p class="no-deliverable">No formal deliverable this module.</p>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m4-reflection">One-line reflection</label>
+        <input type="text" id="m4-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-5">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">05</div>
+          <h3>Module 5</h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m5-start">Date started</label>
+          <input type="text" id="m5-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m5-done">Date completed</label>
+          <input type="text" id="m5-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <p class="no-deliverable">No formal deliverable this module.</p>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m5-reflection">One-line reflection</label>
+        <input type="text" id="m5-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="module-6">
+    <div class="module-card">
+      <div class="module-top">
+        <div>
+          <div class="module-num">06</div>
+          <h3>Module 6 <span style="color:var(--spruce-soft);font-weight:400;">— The Living Document</span></h3>
+        </div>
+      </div>
+      <div class="date-pair">
+        <div class="field-row">
+          <label for="m6-start">Date started</label>
+          <input type="text" id="m6-start" placeholder="MM/DD/YYYY">
+        </div>
+        <div class="field-row">
+          <label for="m6-done">Date completed</label>
+          <input type="text" id="m6-done" placeholder="MM/DD/YYYY">
+        </div>
+      </div>
+      
+      <label class="deliverable-check"><input type="checkbox" id="m6-deliverable-done"> Key deliverable for this module — <strong>Living Document</strong> — complete</label>
+      <div class="field-row" style="margin-top:1rem;">
+        <label for="m6-reflection">One-line reflection</label>
+        <input type="text" id="m6-reflection" placeholder="One thing I learned about myself / my home — this module.">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOUNDING COHORT CHECK-IN ============ -->
+  <section class="block" id="cohort">
+    <div class="module-top">
+      <div><h2>Bring this into the community</h2></div>
+    </div>
+    <p style="color:var(--spruce-soft);max-width:38em;margin:.8rem 0 1.6rem;">These aren't accountability prompts — they're here so you're not staring at a blank box wondering what to post. Borrow one, fill in the blank, and post it as-is.</p>
+
+    <div class="prompt-card">"I just finished Module ___. One thing that surprised me: ___"</div>
+    <div class="prompt-card">"I'm stuck on ___ — has anyone else run into this?"</div>
+    <div class="prompt-card">"Something I changed in my home this week: ___"</div>
+
+    <div class="field-row" style="margin-top:1.4rem;">
+      <label for="cohort-draft">Draft your post here <span style="text-transform:none;font-weight:400;">(optional — copy it over when you're ready)</span></label>
+      <textarea id="cohort-draft" rows="3" placeholder="Draft here, then paste it into the community space whenever you're ready."></textarea>
+    </div>
+
+    <p style="color:var(--spruce-soft);font-size:.95rem;margin-top:1.4rem;"><em>You don't need to have anything finished to post here. Progress counts as progress.</em></p>
+
+    <div class="action-row">
+      <button class="btn btn-savepdf" type="button">&#8681; Save My Companion as a PDF</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">The Neuro Aesthetic&trade; &middot; Course Companion. &copy; 2026 Jessica Weiss &middot; Matriarch interiors + architecture &middot; <em>Design for every mind.</em></div>
+</footer>
+
+<script>
+(function(){
+
+  // ---------- Autosave (localStorage, this browser only) ----------
+  const SAVE_KEY = 'tna-course-companion-v1';
+
+  function collectPersistables(){
+    const result = [];
+    document.querySelectorAll('input[type=text], input[type=checkbox], input[type=radio], textarea').forEach(el => {
+      let key;
+      if (el.id) key = 'id:' + el.id;
+      else if (el.type === 'radio' && el.name) key = 'radio:' + el.name + ':' + el.value;
+      else return;
+      result.push({el, key});
+    });
+    return result;
+  }
+
+  function saveState(){
+    try {
+      const obj = {};
+      collectPersistables().forEach(({el, key}) => {
+        if (el.type === 'checkbox' || el.type === 'radio'){
+          if (el.checked) obj[key] = true;
+        } else if (el.value) {
+          obj[key] = el.value;
+        }
+      });
+      localStorage.setItem(SAVE_KEY, JSON.stringify(obj));
+    } catch(e){ /* storage unavailable — PDF export still works */ }
+  }
+
+  function loadState(){
+    let obj = {};
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (raw) obj = JSON.parse(raw);
+    } catch(e){ return; }
+    collectPersistables().forEach(({el, key}) => {
+      if (!(key in obj)) return;
+      if (el.type === 'checkbox' || el.type === 'radio'){
+        el.checked = !!obj[key];
+      } else {
+        el.value = obj[key];
+      }
+    });
+  }
+
+  function clearState(){
+    if (!confirm("Clear all your saved answers on this page? This can't be undone — save a PDF copy first if you want to keep it.")) return;
+    try { localStorage.removeItem(SAVE_KEY); } catch(e){}
+    location.reload();
+  }
+
+  document.addEventListener('change', saveState);
+  document.addEventListener('input', saveState);
+
+  const clearBtn = document.getElementById('clear-btn');
+  if (clearBtn) clearBtn.addEventListener('click', clearState);
+
+  // ---------- Save My Companion as a PDF (uses the browser's native print/Save-as-PDF) ----------
+  function expandTextareasForPrint(){
+    document.querySelectorAll('textarea').forEach(function(ta){
+      ta.dataset.origHeight = ta.style.height || '';
+      ta.style.height = 'auto';
+      ta.style.height = (ta.scrollHeight + 4) + 'px';
+    });
+  }
+
+  function restoreTextareasAfterPrint(){
+    document.querySelectorAll('textarea').forEach(function(ta){
+      ta.style.height = ta.dataset.origHeight || '';
+    });
+  }
+
+  window.addEventListener('beforeprint', expandTextareasForPrint);
+  window.addEventListener('afterprint', restoreTextareasAfterPrint);
+
+  function printCompanion(){
+    expandTextareasForPrint();
+    window.print();
+  }
+
+  document.querySelectorAll('.btn-savepdf').forEach(function(btn){
+    btn.addEventListener('click', printCompanion);
+  });
+
+  loadState();
+})();
+</script>
+</body>
+</html>
