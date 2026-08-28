@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Clutter Profile — a Matriarch Method self-assessment</title>
+<meta name="description" content="A free 10-minute self-assessment from the Matriarch Method: discover how you relate to objects, visibility, and order — and what your home should do about it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-tint:#E9EAE0; --spruce:#2C3A33; --spruce-soft:#54655B;
+    --sage:#8FA28C; --ochre:#A9742F; --ochre-deep:#8C5E20; --line:#C9CBBE; --max:720px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+  body{background:var(--paper);color:var(--spruce);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:1.05rem;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem;}
+  header{padding:1.3rem 0;border-bottom:1px solid var(--line);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .wordmark{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--spruce);text-decoration:none;}
+  .wordmark span{color:var(--ochre-deep);}
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+  .brand img{height:34px;width:auto;display:block;}
+  .kicker{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.18;}
+  h1{font-size:clamp(1.9rem,5vw,2.7rem);}
+  h2{font-size:clamp(1.45rem,3.6vw,1.9rem);}
+  .eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem;}
+  .eyebrow::before{content:"";width:1.8rem;height:1px;background:var(--ochre);}
+  .btn{display:inline-block;background:var(--ochre);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;padding:.9rem 1.7rem;border-radius:999px;border:none;cursor:pointer;font-family:inherit;}
+  .btn:hover{background:var(--ochre-deep);}
+  .btn.ghost{background:transparent;color:var(--spruce);border:1.5px solid var(--spruce);}
+  .btn.ghost:hover{background:var(--spruce);color:var(--paper);}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:4px;}
+
+  /* Screens */
+  .screen{display:none;padding:3.2rem 0 4.5rem;}
+  .screen.active{display:block;}
+
+  /* Intro */
+  .intro p{max-width:36em;margin:1rem 0;color:var(--spruce-soft);}
+  .intro .lede{font-size:1.15rem;color:var(--spruce);}
+  .meta-row{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 2rem;font-size:.9rem;color:var(--spruce-soft);}
+  .meta-row div{border-left:2px solid var(--sage);padding-left:.8rem;}
+
+  /* Quiz */
+  .progress{height:5px;background:var(--paper-tint);border-radius:99px;overflow:hidden;margin:0 0 .7rem;}
+  .progress i{display:block;height:100%;background:var(--sage);width:0;transition:width .25s ease;}
+  .q-count{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;margin-bottom:1.6rem;}
+  .q-text{font-family:'Fraunces',serif;font-size:clamp(1.3rem,3.4vw,1.65rem);font-weight:500;margin-bottom:1.7rem;max-width:24em;}
+  .opts{display:grid;gap:.7rem;}
+  .opt{
+    text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;
+    padding:1rem 1.2rem;font:inherit;color:var(--spruce);cursor:pointer;transition:border-color .15s ease,background .15s ease;
+  }
+  .opt:hover{border-color:var(--sage);background:#FBFAF6;}
+  .opt.selected{border-color:var(--ochre);background:#FBF6EC;}
+  .nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+  .back{background:none;border:none;font:inherit;font-weight:700;color:var(--spruce-soft);cursor:pointer;padding:.5rem .2rem;}
+  .back:hover{color:var(--spruce);}
+  .back[disabled]{visibility:hidden;}
+
+  /* Results */
+  .result-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:2rem;margin:1.8rem 0;}
+  .result-card .label{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);}
+  .result-card h2{margin:.4rem 0 .3rem;}
+  .truth{font-family:'Fraunces',serif;font-style:italic;font-size:1.18rem;color:var(--spruce-soft);margin-bottom:1rem;}
+  .result-card p{color:var(--spruce-soft);margin-bottom:1rem;}
+  .spec{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.3rem;border-top:1px solid var(--line);padding-top:1.3rem;}
+  .spec h3{font-size:.82rem;letter-spacing:.11em;text-transform:uppercase;font-family:'Atkinson Hyperlegible',sans-serif;font-weight:700;margin-bottom:.5rem;}
+  .spec .do h3{color:var(--ochre-deep);}
+  .spec .avoid h3{color:var(--spruce-soft);}
+  .spec ul{list-style:none;}
+  .spec li{font-size:.94rem;color:var(--spruce-soft);padding:.28rem 0 .28rem 1.1rem;position:relative;}
+  .spec .do li::before{content:"—";position:absolute;left:0;color:var(--sage);}
+  .spec .avoid li::before{content:"—";position:absolute;left:0;color:var(--line);}
+  .hybrid-card{background:var(--paper-tint);border:1px solid var(--line);border-radius:12px;padding:1.6rem 2rem;margin:1.4rem 0;}
+  .secondary-line{margin:1.2rem 0 0;color:var(--spruce-soft);}
+  .disclaimer{font-size:.88rem;color:var(--spruce-soft);border-left:3px solid var(--sage);padding-left:1rem;margin:2rem 0;max-width:38em;}
+  .cta-block{background:var(--spruce);color:var(--paper);border-radius:12px;padding:2rem;margin-top:2.2rem;}
+  .cta-block h2{color:#fff;margin-bottom:.6rem;}
+  .cta-block p{color:#D7DCD2;margin-bottom:1.4rem;max-width:34em;}
+  .cta-block .row{display:flex;gap:1rem;flex-wrap:wrap;}
+  .cta-block .btn.ghost{color:var(--paper);border-color:var(--paper);}
+  .cta-block .btn.ghost:hover{background:var(--paper);color:var(--spruce);}
+  .retake{margin-top:1.6rem;}
+  footer{border-top:1px solid var(--line);padding:1.8rem 0;font-size:.86rem;color:var(--spruce-soft);}
+  @media (max-width:600px){.spec{grid-template-columns:1fr;}}
+  .save-row{margin:0 0 1.8rem;}
+  .save-row .btn{display:inline-flex;align-items:center;gap:.5rem;}
+  @media print{
+    .save-row,.retake,header .kicker{display:none!important;}
+    body{background:#fff;}
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+    .result-card,.hybrid-card,.cta-block{break-inside:avoid;}
+    @page{margin:0.6in;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="data:image/png;base64,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" alt="The Neuro Aesthetic logo — a brain-shaped house cross-section">
+      <span class="wordmark">the neuro <span>aesthetic</span></span>
+    </a>
+    <span class="kicker">The Clutter Profile</span>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="screen intro active" id="intro">
+  <div class="wrap">
+    <p class="eyebrow">A free self-assessment</p>
+    <h1>How do you relate to objects, visibility, and order?</h1>
+    <p class="lede">Not "messy versus tidy." This profile looks at what visibility does to your nervous system, what objects are doing for you, and why conventional organizing advice may have failed you. Design works from the bottom up — and this is where it starts.</p>
+    <div class="meta-row">
+      <div><strong>30 questions</strong><br>about 10 minutes</div>
+      <div><strong>5 archetypes</strong><br>plus hybrid pairings</div>
+      <div><strong>No wrong answers</strong><br>nothing here needs fixing</div>
+    </div>
+    <p>Go with your first instinct — there's no timer, and there are no wrong answers. Answer for how you actually live, not how you wish things looked.</p>
+    <p style="margin-top:1.6rem;"><button class="btn" onclick="startQuiz()">Begin the profile</button></p>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="screen" id="quiz">
+  <div class="wrap">
+    <div class="progress"><i id="bar"></i></div>
+    <p class="q-count" id="qcount"></p>
+    <h2 class="q-text" id="qtext"></h2>
+    <div class="opts" id="opts"></div>
+    <div class="nav-row">
+      <button class="back" id="backBtn" onclick="goBack()">← Back</button>
+      <span class="kicker" id="hint">Choose the answer closest to true</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="screen" id="results">
+  <div class="wrap">
+    <p class="eyebrow">Your clutter profile</p>
+    <div style="background:var(--paper-tint);border-left:3px solid var(--sage);padding:1rem 1.2rem;margin-bottom:1.8rem;border-radius:0 8px 8px 0;">
+      <p style="font-size:.9rem;color:var(--spruce-soft);margin:0;"><strong style="color:var(--spruce);">How to use your profile:</strong> Your primary profile is below, with your named hybrid pairing if applicable. Bring these results into your Clutter Profile worksheet in Module 1 — it's your first design brief.</p>
+    </div>
+    <div class="save-row"><button class="btn" onclick="window.print()">&#8681; Save your results as a PDF</button></div>
+    <div id="resultBody"></div>
+    <p class="disclaimer">The Clutter Profile is a design tool, not a diagnostic. It describes how you relate to objects and space so your home can be built around you — nothing more, and nothing about you needs fixing.</p>
+    <div class="cta-block">
+      <h2>Your profile is done — bring it back into the course.</h2>
+      <p>Head back to the Module 1 course page and do two things: fill in your Clutter Profile worksheet with what you found here, and share your result in the community.</p>
+    </div>
+    <p class="retake"><button class="back" onclick="location.reload()" style="visibility:visible;">↺ Retake the profile</button></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Jessica Weiss · Matriarch interiors + architecture · <em>Design for every mind.</em></div>
+</footer>
+
+<script>
+// A=Visual Processor, B=Minimal Regulator, C=Control Seeker, D=Creative Accumulator, E=Memory Keeper
+const QUESTIONS = [
+ {q:"When you're looking for something you use often, you prefer it to be…",o:{A:"Out where I can see it",B:"Put away so surfaces feel calm",C:"In the same specific place every time",D:"Near related tools or activities",E:"Somewhere safe, because it's meaningful"}},
+ {q:"How do you feel about open shelving?",o:{A:"I find it relieving — it helps me remember",B:"It overwhelms me — too visually busy",C:"It's fine, if it's organized consistently",D:"It's great for tools and supplies",E:"I like it only for displaying special things"}},
+ {q:"When things are put away but you don't know where they are…",o:{A:"I forget they exist",B:"I feel calmer anyway",C:"I feel unsettled",D:"I get frustrated later",E:"I worry something important is lost"}},
+ {q:"You've just tidied your home. Now most things are…",o:{A:"Still out where I can see them",B:"Put away so the space feels calmer",C:"Back in their usual, specific spots",D:"Near the activities or projects they're used for",E:"Set aside in places that feel safe or meaningful"}},
+ {q:"When you walk into a room with a lot going on visually, you usually…",o:{A:"Notice details that remind you what needs to happen",B:"Feel mentally overloaded",C:"Feel the urge to straighten or fix it",D:"Feel curious or inspired",E:"Feel drawn to certain meaningful items"}},
+ {q:"When you're done using something, what most often happens?",o:{A:"I leave it out, because seeing it helps me remember it",B:"I put it away quickly, even if it's not very organized",C:"I put it back in its exact spot",D:"I leave it out with the rest of the project until I'm fully done",E:"I put it somewhere safe because it matters to me"}},
+ {q:"When you're deciding where something belongs, what matters most?",o:{A:"That I'll remember it later",B:"That it's not visually distracting",C:"That it has a clear, consistent spot",D:"That it's near related items or activities",E:"That it's kept with things that matter to me"}},
+ {q:"How do drawers usually function for you?",o:{A:"They're helpful, if they're shallow",B:"They're best when they hide mess",C:"They only work if they're organized clearly",D:"They're full of supplies",E:"They're where I store keepsakes"}},
+ {q:"If your home looked neat, but you weren't sure where things were, how would that feel?",o:{A:"Stressful — I'd forget things",B:"Fine — calm matters more",C:"Uncomfortable — I'd feel off",D:"Fine — I'd figure things out as needed",E:"Worrying — I might lose track of important things"}},
+ {q:"When you think about putting things away, you're mostly trying to…",o:{A:"Keep it visible so I remember",B:"Get it out of sight quickly",C:"Put it back the right way",D:"Keep it easy to grab for what I do",E:"Keep it protected because it matters"}},
+ {q:"When someone says \u201cjust put it away,\u201d your biggest obstacle is usually…",o:{A:"If it's hidden, I'll forget it",B:"It takes too much effort to maintain",C:"If it's not done right, it bothers me",D:"I'm in the middle of too many things",E:"I don't want to lose something meaningful"}},
+ {q:"When a space stops working the way it used to, you usually…",o:{A:"Lose track of how to use it",B:"Ignore it if it still looks okay",C:"Feel uneasy until it's fixed",D:"Adjust or work around it",E:"Feel discouraged or sentimental"}},
+ {q:"You're most likely to abandon an organizing approach when…",o:{A:"You can't see what's there",B:"It requires too many steps",C:"It isn't consistent",D:"It limits flexibility",E:"It asks you to let go of meaningful things"}},
+ {q:"How do you feel about the idea that \u201ceverything should have a place\u201d?",o:{A:"It only works for me if I can still see things",B:"It sounds exhausting",C:"It feels necessary",D:"It depends on what I'm doing",E:"It depends on what the item means"}},
+ {q:"A space feels easiest to live in when…",o:{A:"You can tell what's there right away",B:"It doesn't demand much attention",C:"It works the same way every time",D:"It adapts as your needs change",E:"It reflects what matters to you"}},
+ {q:"When life gets busy, your home usually…",o:{A:"Keeps things out where I can see them, so nothing gets lost",B:"Hides things — everything gets shoved out of sight",C:"Feels out of order",D:"Collects more supplies and \u201cjust in case\u201d items",E:"Holds onto reminders and memories"}},
+ {q:"Decluttering feels…",o:{A:"Risky — I might forget things",B:"Visually relieving",C:"Necessary, but stressful",D:"Limiting — like losing options",E:"Emotional — like letting go of meaning"}},
+ {q:"You feel most successful at home when…",o:{A:"You can find what you need quickly",B:"The space feels calm to look at",C:"Things are where they're supposed to be",D:"You have what you need to do things",E:"Your space feels like \u201cyou\u201d"}},
+ {q:"If someone reorganizes your things without asking, you mostly feel…",o:{A:"Disoriented — I can't find anything",B:"Relieved — it looks calmer",C:"Unsettled — my system is disrupted",D:"Annoyed — it slows me down",E:"Hurt — it changes what matters"}},
+ {q:"The thing that frustrates you most at home is when…",o:{A:"You forget things exist",B:"There's too much to look at",C:"Things feel out of order",D:"You don't have what you need",E:"You feel pressured to let things go"}},
+ {q:"Objects in your home mostly act like…",o:{A:"Reminders and cues",B:"Stimuli — too much, or just right",C:"Signals of order or disorder",D:"Tools and materials for doing things",E:"Memory containers"}},
+ {q:"When you're in the middle of a project, how do you usually handle the items involved?",o:{A:"I keep them visible so I don't lose track",B:"I try to clear them away so the space feels calm",C:"I organize them so they're easy to return to",D:"I leave them out until I'm fully finished",E:"I keep them together because they're meaningful"}},
+ {q:"You feel most comfortable in a space when…",o:{A:"You can quickly orient yourself",B:"It feels visually calm",C:"You know how everything works",D:"It supports what you're doing",E:"It reflects your life and history"}},
+ {q:"When things get messy, it usually feels…",o:{A:"Useful, or temporary",B:"Overwhelming",C:"Stressful or unsettling",D:"Like part of the process",E:"Emotionally charged"}},
+ {q:"You're most bothered when…",o:{A:"Things disappear from sight",B:"Things are visible on surfaces",C:"Things are misplaced",D:"Things are unavailable when you need them",E:"Things are discarded without your say"}},
+ {q:"Storage should primarily help you…",o:{A:"See what you have",B:"Reduce visual noise",C:"Keep things in their correct place",D:"Support what you do — tools, projects, activities",E:"Protect what matters"}},
+ {q:"You feel safest when your environment is…",o:{A:"Easy to read at a glance",B:"Visually calm",C:"Predictable and consistent",D:"Well-resourced for your needs",E:"Meaningful and personal"}},
+ {q:"You feel overwhelmed when…",o:{A:"You can't see reminders",B:"There's too much visual input",C:"Systems break or feel inconsistent",D:"You can't find or access what you need",E:"You're asked to let go before you're ready"}},
+ {q:"At the end of the day, your home feels best when…",o:{A:"You can spot what you'll need tomorrow",B:"The space feels calm to look at",C:"Things are back in order",D:"Your setup supports what's next",E:"Your space reflects your life"}},
+ {q:"At a deep level, objects in your home help you…",o:{A:"Remember and stay oriented",B:"Feel regulated and calm",C:"Feel secure and in control",D:"Do what you love to do",E:"Stay connected to meaning"}}
+];
+
+const PROFILES = {
+ A:{name:"The Visual Processor",truth:"\u201cIf I can see it, I can remember it and feel oriented.\u201d",
+   body:"Visibility isn't a bad habit for you — it's a cognitive support. Visible objects work as reminders, anchors, and orientation; hidden storage tends to mean forgotten storage. What others call mess is often functional sequencing, and what overwhelms you isn't having too much — it's not knowing what exists.",
+   dos:["Shallow, open, visible storage","Clear bins, trays, and pegboards","Zones instead of concealment","Display that's intentional and bounded"],
+   avoids:["Deep drawers and over-concealment","\u201cClean\u201d systems that erase your cues","Storage that hides what you'll forget"]},
+ B:{name:"The Minimal Regulator",truth:"\u201cVisual quiet helps my nervous system settle.\u201d",
+   body:"For you, minimalism isn't a value system or an aesthetic — it's a physiological need. Visual noise competes for your attention and drains you; visual simplicity creates relief. You don't need things perfect or even perfectly sorted. You need them quiet.",
+   dos:["Concealed, high-function storage","Clear surfaces as standing policy","Soft minimalism — calm, not empty","Loose systems are fine behind closed doors"],
+   avoids:["Open shelving and visual abundance","\u201cDisplay for warmth\u201d pressure","Rigid perfection in place of good-enough calm"]},
+ C:{name:"The Control Seeker",truth:"\u201cIf everything has a place, I feel safe.\u201d",
+   body:"Order isn't about appearances for you — it's about trusting your environment. Predictability is the regulation: knowing where things are and that they'll stay there. Things out of place don't just annoy you; they destabilize you, and even hidden disorder can hum in the background if you know it's there.",
+   dos:["Clear categories and labels","The same rules in every room","Logical adjacencies — things live near their use","Systems that are repeatable and consistent"],
+   avoids:["Flexible or ambiguous storage","Multi-use zones without boundaries","\u201cJust tuck it somewhere\u201d"]},
+ D:{name:"The Creative Accumulator",truth:"\u201cVariety and access fuel me.\u201d",
+   body:"Your objects aren't excess — they're possibility. Tools, materials, books, and options represent your future self and your creative identity, which is why editing can feel like genuine loss. You're not disorganized; you're over-resourced, and the answer is capacity with structure, not reduction.",
+   dos:["Deep storage with clear categorization","Dedicated project zones — studio logic","Containers that allow fullness without chaos","Seasonal purge cycles instead of constant restraint"],
+   avoids:["Forced minimalism and tiny storage","Scarcity-based organizing","Moral pressure to \u201clet go\u201d"]},
+ E:{name:"The Memory Keeper",truth:"\u201cObjects hold meaning; removing them feels like loss.\u201d",
+   body:"Your relationship to objects is about continuity — of people, eras, and selves. Discarding can feel like erasing, which is why clutter often grows after loss, moves, or big transitions. This is one of the most misunderstood profiles, and the answer is never aggressive decluttering. It's reverence with boundaries.",
+   dos:["Memory zones — boxes, drawers, cabinets with intention","Curated display of what matters most","Honor-before-edit: process first, decide second","Containment over elimination"],
+   avoids:["Aggressive or deadline-driven purging","Shame-based organizing","\u201cJust take a photo and toss it\u201d"]}
+};
+
+const HYBRIDS = {
+ "AB":{name:"The Low-Demand Regulator",blurb:"\u201cI need visual calm with the least possible effort.\u201d You want things out of sight, but fussy systems fail you fast. Your design rules: big bins, shallow drawers, drop zones, and concealment without categorization. Avoid labels, micro-sorting, and anything that demands maintenance."},
+ "AC":{name:"The Visible Controller",blurb:"\u201cI need to see my things — and know exactly where they go.\u201d Visibility supports your memory while consistency keeps you safe, so you need both at once. Your design rules: open shelving with strict categories, labels, and the same placement logic everywhere. Avoid hidden storage without rules, and visual chaos without structure."},
+ "BD":{name:"The Contained Creative",blurb:"\u201cI need abundance — but I can't look at it all at once.\u201d You cycle between accumulating and purging because two real needs are competing. Your design rules: deep storage for tools, closed cabinets for bulk, and dedicated creative zones with firm visual boundaries. Avoid minimalist mandates and displaying everything."},
+ "BE":{name:"The Gentle Keeper",blurb:"\u201cI want to keep meaningful things without being overwhelmed by them.\u201d Your design rules: curated memory boxes, hidden-but-intentional storage, and editing as ritual rather than chore. Avoid open memory displays everywhere, and anyone rushing your letting-go."},
+ "CD":{name:"The Structured Accumulator",blurb:"\u201cI want a lot — but it has to make sense.\u201d Possibility and logic, together. Your design rules: modular, expandable systems with clear categorization and room to grow. Avoid vague zones and storage that can't expand with you."},
+ "AE":{name:"The Transitional Holder",blurb:"\u201cI'm in between who I was and who I'm becoming.\u201d Piles and half-sorted objects often mean a life in transition, not a failed system. Your design rules: temporary containers, grace zones, and time-limited storage. Avoid building permanent systems too early — and any shaming language, including your own."}
+};
+
+let answers = [];
+let idx = 0;
+let order = []; // per-question shuffled option keys
+
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
+
+function startQuiz(){
+  order = QUESTIONS.map(()=>shuffle(["A","B","C","D","E"]));
+  answers = new Array(QUESTIONS.length).fill(null);
+  idx = 0;
+  show("quiz"); render();
+}
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function render(){
+  const q = QUESTIONS[idx];
+  document.getElementById("bar").style.width = ((idx)/QUESTIONS.length*100)+"%";
+  document.getElementById("qcount").textContent = "Question "+(idx+1)+" of "+QUESTIONS.length;
+  document.getElementById("qtext").textContent = q.q;
+  const box = document.getElementById("opts");
+  box.innerHTML = "";
+  order[idx].forEach(key=>{
+    const b = document.createElement("button");
+    b.className = "opt"+(answers[idx]===key?" selected":"");
+    b.textContent = q.o[key];
+    b.onclick = ()=>{ answers[idx]=key; idx<QUESTIONS.length-1 ? (idx++, render()) : finish(); };
+    box.appendChild(b);
+  });
+  document.getElementById("backBtn").disabled = idx===0;
+}
+
+function goBack(){ if(idx>0){ idx--; render(); } }
+
+function finish(){
+  const tally = {A:0,B:0,C:0,D:0,E:0};
+  answers.forEach(k=>{ if(k) tally[k]++; });
+  const sorted = Object.entries(tally).sort((a,b)=>b[1]-a[1]);
+  const [pKey,pScore] = sorted[0];
+  const [sKey,sScore] = sorted[1];
+  const P = PROFILES[pKey], S = PROFILES[sKey];
+  document.title = "My Clutter Profile \u2014 " + P.name;
+  const hybridKey = [pKey,sKey].sort().join("");
+  const H = HYBRIDS[hybridKey];
+  // Secondary is meaningful if it's reasonably close to primary
+  const strongSecondary = sScore >= Math.max(4, pScore*0.55);
+
+  let html = `
+    <div class="result-card">
+      <span class="label">Primary profile · ${pScore} of ${QUESTIONS.length}</span>
+      <h2>${P.name}</h2>
+      <p class="truth">${P.truth}</p>
+      <p>${P.body}</p>
+      <div class="spec">
+        <div class="do"><h3>Design with it</h3><ul>${P.dos.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+        <div class="avoid"><h3>Works against you</h3><ul>${P.avoids.map(d=>`<li>${d}</li>`).join("")}</ul></div>
+      </div>
+    </div>`;
+
+  if(strongSecondary){
+    html += `<p class="secondary-line">Your secondary profile is <strong>${S.name}</strong> (${sScore} of ${QUESTIONS.length}) — <em>${S.truth.replace(/\u201c|\u201d/g,"")}</em></p>`;
+    if(H){
+      html += `
+      <div class="hybrid-card">
+        <span class="label" style="color:var(--ochre-deep);font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;">Your pairing has a name</span>
+        <h2 style="margin:.35rem 0 .6rem;">${H.name}</h2>
+        <p style="color:var(--spruce-soft);">${H.blurb}</p>
+      </div>`;
+    }
+  } else {
+    html += `<p class="secondary-line">Your answers point strongly to a single profile — your secondary leanings were spread fairly evenly across the others.</p>`;
+  }
+
+  document.getElementById("resultBody").innerHTML = html;
+  document.getElementById("bar").style.width = "100%";
+  show("results");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sensory Profile™ — Module 1 Self-Assessment</title>
+<meta name="description" content="An interactive self-assessment from The Neuro Aesthetic — map your 8 sensory systems and find your priority systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EA; --paper-tint:#E9EAE0; --spruce:#2C3A33; --spruce-soft:#54655B;
+    --sage:#8FA28C; --sage-deep:#5F7359; --ochre:#A9742F; --ochre-deep:#8C5E20; --line:#828674; --max:760px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+  body{background:var(--paper);color:var(--spruce);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:1.03rem;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem;}
+  header{padding:1.3rem 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--paper);z-index:20;}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.4rem;}
+  .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;}
+  .progress-strip{display:flex;gap:.3rem;}
+  .seg{width:1.5rem;height:5px;border-radius:99px;background:var(--paper-tint);border:1px solid var(--line);transition:background .2s ease,border-color .2s ease;}
+  .seg.done{background:var(--sage-deep);border-color:var(--sage-deep);}
+  .wordmark{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--spruce);text-decoration:none;}
+  .wordmark span{color:var(--ochre-deep);}
+  .kicker{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;}
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:500;line-height:1.18;}
+  h1{font-size:clamp(1.9rem,5vw,2.6rem);}
+  h2{font-size:clamp(1.35rem,3.4vw,1.7rem);}
+  h3{font-size:1.15rem;}
+  h4{font-size:1rem;font-weight:600;font-family:'Atkinson Hyperlegible',sans-serif;text-transform:uppercase;letter-spacing:.07em;color:var(--spruce-soft);}
+  .eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;display:flex;align-items:center;gap:.7rem;margin-bottom:.7rem;}
+  .eyebrow::before{content:"";width:1.8rem;height:1px;background:var(--ochre);}
+  a{color:var(--ochre-deep);}
+  .btn{display:inline-block;background:var(--ochre-deep);color:#fff;text-decoration:none;font-weight:700;font-size:.95rem;padding:.75rem 1.4rem;border-radius:999px;border:none;cursor:pointer;font-family:inherit;}
+  .btn:hover{background:var(--spruce);}
+  .btn.ghost{background:transparent;color:var(--spruce);border:1.5px solid var(--spruce);}
+  .btn.ghost:hover{background:var(--spruce);color:var(--paper);}
+  .btn.small{padding:.5rem 1rem;font-size:.85rem;}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--ochre);outline-offset:2px;border-radius:4px;}
+
+  /* nav */
+  nav.jump{display:flex;gap:.4rem;flex-wrap:wrap;padding:.8rem 0;}
+  nav.jump a{font-size:.82rem;font-weight:700;color:var(--spruce-soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;background:var(--paper-tint);}
+  nav.jump a:hover{border-color:var(--sage);color:var(--spruce);}
+
+  .intro{padding:2.4rem 0 1rem;}
+  .intro p{max-width:38em;margin:.9rem 0;color:var(--spruce-soft);}
+  .intro .lede{font-size:1.12rem;color:var(--spruce);}
+  .note-box{background:var(--paper-tint);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;margin:1.4rem 0;font-size:.94rem;color:var(--spruce-soft);}
+  .note-box strong{color:var(--spruce);}
+
+  section.session{padding:2.6rem 0 1rem;border-top:2px solid var(--spruce);}
+  .session-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:.3rem;}
+  .session-recap{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.4rem;margin:1.2rem 0 2rem;font-size:.93rem;color:var(--spruce-soft);}
+  .session-recap b{color:var(--spruce);}
+
+  .system-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1.8rem 1.8rem 2.1rem;margin:0 0 2.2rem;scroll-margin-top:5.5rem;}
+  .system-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap;margin-bottom:.2rem;}
+  .system-def{color:var(--spruce-soft);font-size:.95rem;margin-bottom:1.3rem;max-width:36em;}
+  .pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--paper-tint);border:1px solid var(--line);color:var(--spruce);font-size:.78rem;font-weight:700;padding:.32rem .8rem;border-radius:999px;white-space:nowrap;}
+  .pill.zero{color:var(--spruce-soft);}
+  .pill.hot{background:#FBF6EC;border-color:var(--ochre);color:var(--ochre-deep);}
+  .system-title{display:flex;align-items:center;gap:.85rem;}
+  .sys-icon{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--paper-tint);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .sys-icon svg{width:1.3rem;height:1.3rem;overflow:visible;}
+  .sys-icon svg *{fill:none;stroke:var(--ochre-deep);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;}
+  .session-index{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:500;color:var(--sage-deep);line-height:1;margin-bottom:.3rem;}
+  .session-end{background:var(--spruce);color:var(--paper);border-radius:14px;padding:1.8rem 2rem;margin:1.4rem 0 0;text-align:center;}
+  .session-end .session-check{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;cursor:pointer;margin-bottom:.7rem;color:#fff;}
+  .session-end .session-check input{width:1.2rem;height:1.2rem;accent-color:var(--ochre);}
+  .session-end p{color:#D7DCD2;font-size:.94rem;margin:0;}
+  .session-end a{color:#fff;text-decoration:underline;font-weight:700;}
+
+  .qblock{border-top:1px solid var(--line);padding:1.3rem 0;}
+  .qblock:first-of-type{border-top:none;padding-top:0;}
+  .qblock .qlabel{display:flex;align-items:center;gap:.6rem;margin-bottom:.3rem;}
+  .qblock .qlabel .tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);}
+  .qblock .qwhat{font-size:.88rem;color:var(--spruce-soft);margin-bottom:.9rem;max-width:36em;}
+
+  .checklist{display:flex;flex-direction:column;gap:.55rem;margin-bottom:.9rem;}
+  label.check{display:flex;align-items:flex-start;gap:.6rem;font-size:.95rem;color:var(--spruce);cursor:pointer;}
+  label.check input[type=checkbox]{margin-top:.2rem;width:1.05rem;height:1.05rem;accent-color:var(--ochre);flex-shrink:0;}
+  label.check.unsure{margin-top:.3rem;padding-top:.6rem;border-top:1px dashed var(--line);font-style:italic;color:var(--spruce-soft);}
+
+  .else-label{display:block;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--spruce-soft);margin-bottom:.4rem;}
+  textarea, input[type=text]{width:100%;font:inherit;font-size:.95rem;color:var(--spruce);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem;resize:vertical;}
+  textarea{min-height:2.6rem;}
+  textarea::placeholder, input[type=text]::placeholder{color:var(--spruce-soft);opacity:1;}
+  .logo-img{height:2.3rem;width:auto;display:block;}
+  .hero-logo{width:10rem;height:auto;display:block;margin-bottom:1.2rem;}
+
+  .alt-prompt{margin-top:1rem;background:var(--paper-tint);border-left:3px solid var(--sage);border-radius:0 8px 8px 0;padding:.9rem 1.1rem;font-size:.9rem;color:var(--spruce-soft);}
+  .alt-prompt strong{color:var(--spruce);display:block;margin-bottom:.25rem;}
+
+  /* scale rows (auditory) */
+  .scale-row{margin-bottom:1.3rem;}
+  .scale-row .scale-name{font-weight:700;margin-bottom:.3rem;}
+  .scale-anchors{display:flex;justify-content:space-between;font-size:.85rem;color:var(--spruce-soft);margin-bottom:.5rem;gap:1rem;}
+  .scale-opts{display:flex;gap:.4rem;flex-wrap:wrap;}
+  .scale-opt{display:flex;align-items:center;gap:.35rem;font-size:.85rem;border:1px solid var(--line);border-radius:8px;padding:.4rem .65rem;cursor:pointer;background:var(--paper);}
+  .scale-opt input{accent-color:var(--ochre);}
+  .scale-opt.na{font-style:italic;color:var(--spruce-soft);}
+
+  /* thermal sub-block */
+  .sub-block{background:var(--paper-tint);border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.3rem;margin:1rem 0 1.3rem;}
+  .sub-block h4{margin-bottom:.7rem;color:var(--spruce);}
+  .radio-row{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.9rem;}
+  label.radio{display:flex;align-items:flex-start;gap:.6rem;font-size:.94rem;cursor:pointer;}
+  label.radio input{margin-top:.2rem;accent-color:var(--ochre);}
+
+  .result-field label{display:block;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--spruce-soft);margin-bottom:.4rem;}
+
+  /* snapshot */
+  .snapshot-row{display:grid;grid-template-columns:11rem 1fr 3.4rem;align-items:center;gap:.8rem;margin-bottom:.7rem;}
+  .snapshot-name{font-size:.92rem;font-weight:700;}
+  .snapshot-track{background:var(--paper-tint);border-radius:99px;height:10px;overflow:hidden;}
+  .snapshot-fill{background:var(--sage);height:100%;border-radius:99px;transition:width .3s ease;}
+  .snapshot-row.top .snapshot-fill{background:var(--ochre);}
+  .snapshot-row.top .snapshot-name{color:var(--ochre-deep);}
+  .snapshot-count{font-size:.85rem;color:var(--spruce-soft);text-align:right;}
+
+  .priority-field{display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem;}
+  .priority-field label{font-family:'Fraunces',serif;font-weight:500;font-size:1.1rem;color:var(--ochre-deep);width:1.3rem;}
+  .priority-note{font-size:.85rem;color:var(--spruce-soft);margin:.6rem 0 1.2rem;}
+  .action-row{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;margin:1.2rem 0;}
+
+  footer{border-top:1px solid var(--line);padding:1.8rem 0 3rem;font-size:.86rem;color:var(--spruce-soft);}
+  @media (max-width:600px){.snapshot-row{grid-template-columns:7.5rem 1fr 3rem;}}
+
+  @media print{
+    button, nav.jump, .progress-strip{display:none!important;}
+    header{position:static;}
+    body{background:#fff;}
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+    .note-box,.session-end,.snapshot-row,.priority-field,.sub-block,.scale-row{break-inside:avoid;}
+    @page{margin:0.6in;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="wordmark" href="#top"><img class="logo-img" src="data:image/png;base64,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" alt="The Neuro Aesthetic logo">The Neuro <span>Aesthetic</span></a>
+    <div class="header-right">
+      <span class="kicker">Module 1 · The Sensory Profile™</span>
+      <div class="progress-strip" aria-label="Session progress">
+        <span class="seg" data-seg="1"></span>
+        <span class="seg" data-seg="2"></span>
+        <span class="seg" data-seg="3"></span>
+        <span class="seg" data-seg="4"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="jump" aria-label="Jump to session">
+    <a href="#session-1">1 · Vision &amp; Hearing</a>
+    <a href="#session-2">2 · Touch, Smell &amp; Taste</a>
+    <a href="#session-3">3 · Movement &amp; Body</a>
+    <a href="#session-4">4 · Priority Systems</a>
+  </nav>
+</div>
+
+<main class="wrap" id="top">
+
+  <section class="intro">
+    <img class="hero-logo" src="data:image/png;base64,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" alt="The Neuro Aesthetic — a home designed from the brain outward">
+    <div class="eyebrow">Self-guided worksheet · not scored, not typed</div>
+    <h1>The Sensory Profile™</h1>
+    <p class="lede">This is an interactive version of your Module 1 self-assessment. Check whatever applies — the page tallies it for you as you go. No single "type" gets assigned here; by the end you'll have a working map of where your nervous system needs the most support.</p>
+    <p>Each of the 8 sensory systems below gets the same three questions:</p>
+    <p><strong>Overwhelm</strong> — what dysregulates you here. <strong>Comfort &amp; Rest</strong> — what this system needs to feel like on an ordinary, calm day (your baseline, not a fix). <strong>Regulation</strong> — what you actively reach for once you're already dysregulated and need to come back down.</p>
+    <p>All three can be true in the same system at once. That's not a contradiction — that's the actual data.</p>
+    <div class="note-box">
+      <strong>If more than one person will live in this home,</strong> each person fills out their own copy. Don't average or compromise your answers to account for someone else yet — that reconciliation happens later, in your Design Brief (Module 3).
+    </div>
+    <div class="note-box">
+      <strong>Genuinely don't know?</strong> Most checklists include an "I'm not sure yet" option near the bottom. Check it instead of guessing, and a reflection question will appear to help you think it through — or just leave it and come back after paying attention for a few days. You don't need pre-existing self-knowledge to start this.
+    </div>
+    <div class="note-box">
+      <strong>Your answers save automatically</strong> in this browser as you go — check a box, and it's saved. Close the tab and come back later on the same device and browser, and everything will still be here.
+    </div>
+    <div class="note-box">
+      <strong>Working across devices, or want a permanent copy?</strong> Autosave only works in this one browser. Use <strong>Save My Profile as a PDF</strong> any time to save a fully-formatted copy of everything you've filled in — keep it, print it, or bring it into Module 3.
+    </div>
+    <div class="action-row">
+      <button class="btn btn-savepdf" type="button">&#8681; Save My Profile as a PDF</button>
+      <button class="btn ghost small" id="clear-btn" type="button">Clear my saved answers</button>
+    </div>
+  </section>
+
+  <!-- ============ SESSION 1 ============ -->
+  <section class="session" id="session-1">
+    <div class="session-head">
+      <div>
+        <div class="session-index">01</div>
+        <h2>Vision &amp; Hearing</h2>
+      </div>
+    </div>
+    <div class="session-recap">
+      Same three questions as always: <b>Overwhelm</b> (what dysregulates you here), <b>Comfort &amp; Rest</b> (your ordinary-day baseline), <b>Regulation</b> (what you reach for once you're already dysregulated). For Visual and Auditory, Comfort &amp; Rest is measured a little differently — see below.
+    </div>
+    <p style="color:var(--spruce-soft);font-size:.94rem;max-width:38em;margin-bottom:1.6rem;">For these two systems, Comfort &amp; Rest draws on three qualities from architectural neuroaesthetics: <b>coherence</b>, <b>fascination</b>, and <b>hominess</b>. These aren't a checklist of good traits to hit — they're spectrums, and where you land on each is personal. Two people can both feel completely at home at opposite ends of the same scale.</p>
+
+    <!-- VISUAL -->
+    <div class="system-card" id="visual" data-system-card="visual">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M2 12s4-6.5 10-6.5S22 12 22 12s-4 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/></svg></span><h3>1. Visual</h3></div>
+        <span class="pill zero" id="count-visual">0 checked</span>
+      </div>
+      <div class="system-def">What you see, and how much visual information your brain is processing at once.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates you visually? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Clutter or piles in your sight line</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Bright/harsh overhead lighting</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Too many colors or patterns in one space</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Glare — off screens, glossy surfaces, windows</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Visual chaos — cords, mismatched items, over-full open shelving</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Flickering light (bulbs, screens)</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Too much happening in your peripheral vision at once</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Mismatched or clashing colors nearby</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Unfinished or "in-progress" areas — piles to deal with later, half-unpacked boxes</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="overwhelm"> Reflections or moving light (sun through blinds, shiny surfaces)</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="visual" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="visual-overwhelm-else">Something else</label>
+        <textarea id="visual-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">Where do you sit on each of these? Both stay in a realistic range — a home with zero visual structure isn't restful for anyone, so genuine chaos isn't an option here, same as Auditory.</div>
+
+        <div class="scale-row">
+          <div class="scale-name">Coherence</div>
+          <div class="scale-anchors"><span>A little visual variety is fine, as long as it hangs together</span><span>I need what's in view to make sense at a glance</span></div>
+          <div class="scale-opts">
+            <label class="scale-opt"><input type="radio" name="visual-coherence" value="1"> 1</label>
+            <label class="scale-opt"><input type="radio" name="visual-coherence" value="2"> 2</label>
+            <label class="scale-opt"><input type="radio" name="visual-coherence" value="3"> 3</label>
+            <label class="scale-opt"><input type="radio" name="visual-coherence" value="4"> 4</label>
+            <label class="scale-opt"><input type="radio" name="visual-coherence" value="5"> 5</label>
+            <label class="scale-opt na"><input type="radio" name="visual-coherence" value="unsure"> Not sure yet</label>
+          </div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-name">Fascination</div>
+          <div class="scale-anchors"><span>Plain and uncluttered is restful to look at</span><span>I want visual richness — texture, pattern, things to look at</span></div>
+          <div class="scale-opts">
+            <label class="scale-opt"><input type="radio" name="visual-fascination" value="1"> 1</label>
+            <label class="scale-opt"><input type="radio" name="visual-fascination" value="2"> 2</label>
+            <label class="scale-opt"><input type="radio" name="visual-fascination" value="3"> 3</label>
+            <label class="scale-opt"><input type="radio" name="visual-fascination" value="4"> 4</label>
+            <label class="scale-opt"><input type="radio" name="visual-fascination" value="5"> 5</label>
+            <label class="scale-opt na"><input type="radio" name="visual-fascination" value="unsure"> Not sure yet</label>
+          </div>
+        </div>
+        <label class="else-label" for="visual-comfort-else">Something else</label>
+        <textarea id="visual-comfort-else" placeholder="What that looks like for you..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> Dim or warm lighting</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> Blank, uncluttered wall space</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> Closed storage — doors that hide visual noise</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> A specific spot your eyes can rest on</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> Natural light without direct glare</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> Soft, diffused lighting — lamps instead of overheads</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> A view of something outside — trees, sky, movement in nature</label>
+          <label class="check"><input type="checkbox" data-system="visual" data-block="regulation"> A symmetrical "reset" surface that's always kept clear</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="visual" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="visual-regulation-else">Something else</label>
+        <textarea id="visual-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-visual" hidden><strong>Not sure yet?</strong>Think of a room that's made you feel instantly calmer the moment you walked in. What was actually in your sight line?</div>
+      </div>
+    </div>
+
+    <!-- AUDITORY -->
+    <div class="system-card" id="auditory" data-system-card="auditory">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M9 17c0 2 1.6 3.2 3.4 3.2 2.6 0 4.6-2.2 4.6-6 0-5-3.4-9.2-7.5-9.2A6.5 6.5 0 0 0 3 11.5C3 13 3.5 14 4.4 15"/><path d="M9 17c-1.4 0-2.5-1.1-2.5-2.6S7.6 12 9 12s2.2.9 2.2 2"/></svg></span><h3>2. Auditory</h3></div>
+        <span class="pill zero" id="count-auditory">0 checked</span>
+      </div>
+      <div class="system-def">What you hear, and how your brain filters — or doesn't filter — sound.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates you by ear? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Layered/simultaneous sound (TV + conversation + appliance running)</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Sudden or sharp noise</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Echo, hard surfaces that amplify sound</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> High-pitched or persistent sound — hums, buzzes, fans, fluorescent lights</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Not being able to locate where a sound is coming from</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Other people's phone or TV volume</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Sound coming through walls or floors — neighbors, footsteps</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Multiple people talking at once</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="overwhelm"> Repetitive noise you can't tune out — dripping, ticking, clicking</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="auditory" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="auditory-overwhelm-else">Something else</label>
+        <textarea id="auditory-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">Where do you sit on each of these? Both stay in a realistic range — a home with zero auditory structure isn't restful for anyone, so genuine chaos isn't an option here, same as Visual.</div>
+
+        <div class="scale-row">
+          <div class="scale-name">Coherence</div>
+          <div class="scale-anchors"><span>A little variety is fine, as long as it hangs together</span><span>I need ambient sound to make sense together</span></div>
+          <div class="scale-opts">
+            <label class="scale-opt"><input type="radio" name="auditory-coherence" value="1"> 1</label>
+            <label class="scale-opt"><input type="radio" name="auditory-coherence" value="2"> 2</label>
+            <label class="scale-opt"><input type="radio" name="auditory-coherence" value="3"> 3</label>
+            <label class="scale-opt"><input type="radio" name="auditory-coherence" value="4"> 4</label>
+            <label class="scale-opt"><input type="radio" name="auditory-coherence" value="5"> 5</label>
+            <label class="scale-opt na"><input type="radio" name="auditory-coherence" value="unsure"> Not sure yet</label>
+          </div>
+        </div>
+
+        <div class="scale-row">
+          <div class="scale-name">Fascination</div>
+          <div class="scale-anchors"><span>Quiet and plain is restful</span><span>I want something to listen to — music, water, rhythm</span></div>
+          <div class="scale-opts">
+            <label class="scale-opt"><input type="radio" name="auditory-fascination" value="1"> 1</label>
+            <label class="scale-opt"><input type="radio" name="auditory-fascination" value="2"> 2</label>
+            <label class="scale-opt"><input type="radio" name="auditory-fascination" value="3"> 3</label>
+            <label class="scale-opt"><input type="radio" name="auditory-fascination" value="4"> 4</label>
+            <label class="scale-opt"><input type="radio" name="auditory-fascination" value="5"> 5</label>
+            <label class="scale-opt na"><input type="radio" name="auditory-fascination" value="unsure"> Not sure yet</label>
+          </div>
+        </div>
+        <label class="else-label" for="auditory-comfort-else">Something else</label>
+        <textarea id="auditory-comfort-else" placeholder="What that looks like for you..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> Consistent white/brown/pink noise</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> Soft, sound-absorbing surfaces — rugs, curtains, upholstery</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> A room you can fully close off</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> Music at a volume you control</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> Headphones or earplugs on hand</label>
+          <label class="check"><input type="checkbox" data-system="auditory" data-block="regulation"> A predictable, familiar sound — a fan, a fish tank, a fixed playlist</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="auditory" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="auditory-regulation-else">Something else</label>
+        <textarea id="auditory-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-auditory" hidden><strong>Not sure where you land on the scales above?</strong>What's the quietest you've ever felt your mind go? Where were you? What was actually happening, sound-wise?</div>
+      </div>
+    </div>
+
+    <div class="session-end">
+      <label class="session-check"><input type="checkbox" id="session-1-done"> I've completed Session 1</label>
+      <p>Good place to stop — your answers are saved. <a href="#session-2">Continue to Touch, Smell &amp; Taste →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ SESSION 2 ============ -->
+  <section class="session" id="session-2">
+    <div class="session-head">
+      <div>
+        <div class="session-index">02</div>
+        <h2>Touch, Smell &amp; Taste</h2>
+      </div>
+    </div>
+    <div class="session-recap">
+      Same three questions again: <b>Overwhelm</b> (what dysregulates you here), <b>Comfort &amp; Rest</b> (your ordinary-day baseline), <b>Regulation</b> (what you reach for once you're already dysregulated). Tactile also covers temperature and airflow below — that's a real sensory need, not a side note.
+    </div>
+
+    <!-- TACTILE -->
+    <div class="system-card" id="tactile" data-system-card="tactile">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M7 11.5V6.3a1.4 1.4 0 0 1 2.8 0v4M9.8 10.3V4.6a1.4 1.4 0 0 1 2.8 0v5.7M12.6 10.3V5.6a1.4 1.4 0 0 1 2.8 0V12M15.4 12V8.4a1.4 1.4 0 0 1 2.8 0v5.4c0 3.7-1.9 6.6-5.6 6.6h-1.8c-2.8 0-3.7-1.4-5.1-3.7l-1.2-2c-.5-.9-.3-1.9.6-2.3.8-.4 1.6-.1 2.1.6l1.1 1.6"/></svg></span><h3>3. Tactile</h3></div>
+        <span class="pill zero" id="count-tactile">0 checked</span>
+      </div>
+      <div class="system-def">What you feel through touch — texture, temperature, pressure on skin. Includes thermoregulation and airflow.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates you through touch and temperature? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Certain fabric textures — scratchy, seams, tags</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Unexpected or unwanted touch</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Temperature swings</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Sticky, wet, or unpredictable textures underfoot</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Tight or restrictive clothing</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Fabric that traps heat or feels damp against skin</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Being too warm, even when others are comfortable</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Being too cold, even when others are comfortable</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Still, stagnant air — no breeze or circulation</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="overwhelm"> Feeling closed-in or short of breath in an airless room</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="tactile" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="tactile-overwhelm-else">Something else</label>
+        <textarea id="tactile-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Familiar, worn-in textures — a favorite chair, blanket</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Steady room temperature</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Flooring that feels good underfoot</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="tactile" data-block="comfort"> I'm not sure yet</label>
+        </div>
+
+        <div class="sub-block">
+          <h4>Temperature &amp; airflow</h4>
+          <div class="radio-row">
+            <label class="radio"><input type="radio" name="tactile-thermal" value="warm"> I run warm — I need cooling fabrics, breathable materials, airflow</label>
+            <label class="radio"><input type="radio" name="tactile-thermal" value="cool"> I run cool — I need warmth, insulating fabrics, layers</label>
+            <label class="radio"><input type="radio" name="tactile-thermal" value="varies"> It varies depending on the day</label>
+            <label class="radio"><input type="radio" name="tactile-thermal" value="unsure"> Not sure yet</label>
+          </div>
+          <div class="qwhat" style="margin-bottom:.7rem;">What helps, regardless of which way you run — check any that apply.</div>
+          <div class="checklist">
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Breathable fabrics — linen, cotton</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> A fan or other source of moving air</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Open windows / cross-breeze</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Cool flooring underfoot — tile, wood</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Air conditioning</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Layers you can add or remove easily</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> A heated blanket or throw</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Warm socks or slippers within reach</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> A space heater</label>
+            <label class="check"><input type="checkbox" data-system="tactile" data-block="comfort"> Thick blankets or rugs</label>
+          </div>
+        </div>
+
+        <label class="else-label" for="tactile-comfort-else">Something else</label>
+        <textarea id="tactile-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> Specific textures — soft blankets, favorite fabric</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> Deep pressure — weighted blanket, tight blanket wrap</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> A go-to chair or surface</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> A fan, open window, or moving air</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> Stepping outside for fresh air</label>
+          <label class="check"><input type="checkbox" data-system="tactile" data-block="regulation"> Adjusting a layer — adding or removing clothing rather than fighting the whole room's temperature</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="tactile" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="tactile-regulation-else">Something else</label>
+        <textarea id="tactile-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-tactile" hidden><strong>Not sure yet?</strong>Is there something you touch or hold without thinking about it — a fabric, an object? And: do you find yourself reaching to open a window or turn on a fan more than the people around you?</div>
+      </div>
+    </div>
+
+    <!-- OLFACTORY -->
+    <div class="system-card" id="olfactory" data-system-card="olfactory">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M9.5 3.5c0 4.5-3.2 6.5-3.2 10.5a5.7 5.7 0 0 0 11.4 0c0-1-.6-1.6-1.5-1.6s-1.5.7-1.5 1.6"/></svg></span><h3>4. Olfactory (Smell)</h3></div>
+        <span class="pill zero" id="count-olfactory">0 checked</span>
+      </div>
+      <div class="system-def">How strongly you register smell, and how long it lingers for you.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates you by smell? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Cooking smells that linger</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Cleaning products</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Other people's scents/perfume</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Trash, pet odor</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> New/synthetic smells — new furniture, fresh paint, plastic</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Candles or air fresheners, even "pleasant" ones</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> Smells drifting in from neighboring units or shared spaces</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="overwhelm"> A smell you can't identify or place</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="olfactory" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="olfactory-overwhelm-else">Something else</label>
+        <textarea id="olfactory-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="comfort"> Fresh air, good ventilation</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="comfort"> A subtle, pleasant ambient smell — not strong</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="comfort"> The absence of lingering background odor</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="comfort"> Smells you associate with safety — a specific soap, food, plant</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="olfactory" data-block="comfort"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="olfactory-comfort-else">Something else</label>
+        <textarea id="olfactory-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="regulation"> A specific calming scent</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="regulation"> Ability to close off the source of a smell</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="regulation"> Unscented products, by choice</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="regulation"> Fresh air / opening a window</label>
+          <label class="check"><input type="checkbox" data-system="olfactory" data-block="regulation"> Something to smell on purpose to "reset" — coffee, citrus, essential oil</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="olfactory" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="olfactory-regulation-else">Something else</label>
+        <textarea id="olfactory-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-olfactory" hidden><strong>Not sure yet?</strong>Is there a smell that makes you feel instantly more relaxed, or instantly on edge? Even one counts.</div>
+      </div>
+    </div>
+
+    <!-- ORAL -->
+    <div class="system-card" id="oral" data-system-card="oral">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M4 11.5c2.2 3.4 5.2 5 8 5s5.8-1.6 8-5"/><path d="M7 11.8c1.2 1.1 2.9 1.7 5 1.7s3.8-.6 5-1.7"/></svg></span><h3>5. Oral / Food-Access</h3></div>
+        <span class="pill zero" id="count-oral">0 checked</span>
+      </div>
+      <div class="system-def">What your body needs by mouth to regulate — chewing, crunching, drinking, oral stimulation — and how easily your home gives you access to that.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Gets in the way</span></div>
+        <div class="qwhat">What makes access harder than it should be? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="oral" data-block="overwhelm"> Food/water requires a trip to another room or floor</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="overwhelm"> Nothing regulating is visible or within reach when you need it</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="overwhelm"> Texture aversions limit what feels tolerable to eat</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="overwhelm"> Having to prepare or cook before you can eat anything</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="overwhelm"> Limited variety of "safe" foods on hand</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="oral" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="oral-overwhelm-else">Something else</label>
+        <textarea id="oral-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="oral" data-block="comfort"> Food/drink easily available without special effort or planning</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="comfort"> Not having to think about it to have access</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="comfort"> A stocked "safe foods" shelf or drawer</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="oral" data-block="comfort"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="oral-comfort-else">Something else</label>
+        <textarea id="oral-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="oral" data-block="regulation"> Reaching for gum, crunchy snacks, ice, or a specific drink</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="regulation"> Water or a snack within arm's reach of where you work/rest</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="regulation"> Oral fidgets — chew necklace, straw, toothpick</label>
+          <label class="check"><input type="checkbox" data-system="oral" data-block="regulation"> A specific drink temperature — ice-cold, hot</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="oral" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="oral-regulation-else">Something else</label>
+        <textarea id="oral-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-oral" hidden><strong>Not sure yet?</strong>What do you find yourself snacking on or drinking without really deciding to?</div>
+      </div>
+    </div>
+
+    <div class="session-end">
+      <label class="session-check"><input type="checkbox" id="session-2-done"> I've completed Session 2</label>
+      <p>Good place to stop — your answers are saved. <a href="#session-3">Continue to Movement, Body &amp; Internal Signals →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ SESSION 3 ============ -->
+  <section class="session" id="session-3">
+    <div class="session-head">
+      <div>
+        <div class="session-index">03</div>
+        <h2>Movement, Body &amp; Internal Signals</h2>
+      </div>
+    </div>
+    <div class="session-recap">
+      Same three questions once more: <b>Overwhelm</b> (what dysregulates you here), <b>Comfort &amp; Rest</b> (your ordinary-day baseline), <b>Regulation</b> (what you reach for once you're already dysregulated). Interoceptive also carries a cross-reference to airflow and breath — see below.
+    </div>
+
+    <!-- VESTIBULAR -->
+    <div class="system-card" id="vestibular" data-system-card="vestibular">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.3" r="1.8"/><path d="M12 7v6M8 21l4-8 4 8M7 12h10"/></svg></span><h3>6. Vestibular (Movement &amp; Balance)</h3></div>
+        <span class="pill zero" id="count-vestibular">0 checked</span>
+      </div>
+      <div class="system-def">Your sense of movement, balance, and orientation in space.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates your sense of balance or motion? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> Heights, open stairwells</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> Surfaces that feel unstable</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> A room's layout that's disorienting</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> Too much open floor inviting motion in a space that can't accommodate it</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> Escalators, elevators, or being on a moving surface</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="overwhelm"> Sudden changes in elevation — steps you don't expect</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="vestibular" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="vestibular-overwhelm-else">Something else</label>
+        <textarea id="vestibular-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="comfort"> Seating that lets you settle into a genuinely restful position</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="comfort"> A spot that feels grounded and stable</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="comfort"> Floor-level seating options</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="vestibular" data-block="comfort"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="vestibular-comfort-else">Something else</label>
+        <textarea id="vestibular-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="regulation"> A rocking chair or swing</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="regulation"> Room to move or pace</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="regulation"> A hammock</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="regulation"> Easy ability to change position — recline, sit, lie down</label>
+          <label class="check"><input type="checkbox" data-system="vestibular" data-block="regulation"> Spinning or swaying on purpose</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="vestibular" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="vestibular-regulation-else">Something else</label>
+        <textarea id="vestibular-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-vestibular" hidden><strong>Not sure yet?</strong>Do you tend to rock, sway, pace, or fidget with movement when you're thinking or stressed? When?</div>
+      </div>
+    </div>
+
+    <!-- PROPRIOCEPTIVE -->
+    <div class="system-card" id="proprioceptive" data-system-card="proprioceptive">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.3" r="1.8"/><path d="M12 6.5v5.5M12 12l-5 3M12 12l5 3M9 21l3-6 3 6"/></svg></span><h3>7. Proprioceptive (Body Awareness &amp; Pressure)</h3></div>
+        <span class="pill zero" id="count-proprioceptive">0 checked</span>
+      </div>
+      <div class="system-def">Your sense of where your body is in space, and how much pressure or resistance it needs.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Overwhelm</span></div>
+        <div class="qwhat">What dysregulates your sense of your own body in space? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="overwhelm"> Cramped spaces that restrict movement</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="overwhelm"> Furniture that doesn't support your body — too soft, no resistance</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="overwhelm"> Not enough room to stretch or move</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="overwhelm"> Doorways, hallways, or furniture arrangements that feel too tight to move through</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="proprioceptive" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="proprioceptive-overwhelm-else">Something else</label>
+        <textarea id="proprioceptive-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="comfort"> Furniture that properly supports your body in a relaxed position</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="comfort"> Enough room to exist in your body without adjusting constantly</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="comfort"> A specific chair or spot that "fits" you</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="proprioceptive" data-block="comfort"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="proprioceptive-comfort-else">Something else</label>
+        <textarea id="proprioceptive-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> Weighted blankets</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> Firm seating</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> Space to stretch or do floor work</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> Pushing/pulling/carrying heavy objects</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> A designated movement corner</label>
+          <label class="check"><input type="checkbox" data-system="proprioceptive" data-block="regulation"> Compression clothing</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="proprioceptive" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="proprioceptive-regulation-else">Something else</label>
+        <textarea id="proprioceptive-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-proprioceptive" hidden><strong>Not sure yet?</strong>Do you press into things, crack your joints, carry heavy bags on purpose, or crave a tight hug? Any of that counts.</div>
+      </div>
+    </div>
+
+    <!-- INTEROCEPTIVE -->
+    <div class="system-card" id="interoceptive" data-system-card="interoceptive">
+      <div class="system-top">
+        <div class="system-title"><span class="sys-icon"><svg viewBox="0 0 24 24"><path d="M3 12h3.2l1.6-4 2.8 8 2-6 1.4 2h4.2"/></svg></span><h3>8. Interoceptive (Internal Body Signals)</h3></div>
+        <span class="pill zero" id="count-interoceptive">0 checked</span>
+      </div>
+      <div class="system-def">How clearly you notice hunger, thirst, temperature, fatigue, breath, or needing the bathroom.</div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Gets in the way</span></div>
+        <div class="qwhat">What makes it harder to notice your own signals? Check any that apply.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="overwhelm"> Signals get missed until they're urgent</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="overwhelm"> Bathroom or kitchen is far from where you spend most of your time</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="overwhelm"> No visual cues or reminders to eat, drink, or rest</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="overwhelm"> Feeling like you can't get a full breath in a stuffy or airless room</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="overwhelm"> Losing track of time and missing meals or breaks entirely</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="interoceptive" data-block="overwhelm"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="interoceptive-overwhelm-else">Something else</label>
+        <textarea id="interoceptive-overwhelm-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Comfort &amp; Rest</span></div>
+        <div class="qwhat">What this system needs to feel like on an ordinary, calm day.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="comfort"> Environment that gently supports noticing needs, without demanding constant vigilance</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="comfort"> Steady temperature, natural light cues for time of day</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="comfort"> Moving air in the room — a fan, a cracked window — so breathing feels easy</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="interoceptive" data-block="comfort"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="interoceptive-comfort-else">Something else</label>
+        <textarea id="interoceptive-comfort-else" placeholder="In your own words..."></textarea>
+      </div>
+
+      <div class="qblock">
+        <div class="qlabel"><span class="tag">Regulation</span></div>
+        <div class="qwhat">What you reach for when you need to come back down.</div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="regulation"> A visible reminder — water bottle in sight, snack station</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="regulation"> A rest space that's easy to get to</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="regulation"> Temperature control within reach</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="regulation"> A bathroom close to main living areas</label>
+          <label class="check"><input type="checkbox" data-system="interoceptive" data-block="regulation"> Airflow — a fan or open window when a room starts to feel close</label>
+          <label class="check unsure"><input type="checkbox" class="unsure-checkbox" data-system="interoceptive" data-block="regulation"> I'm not sure yet</label>
+        </div>
+        <label class="else-label" for="interoceptive-regulation-else">Something else</label>
+        <textarea id="interoceptive-regulation-else" placeholder="In your own words..."></textarea>
+        <div class="alt-prompt" id="alt-interoceptive" hidden><strong>Not sure yet?</strong>This one's genuinely hard to self-notice, and that's common, not a failure. If you don't know yet, leave it — you'll likely learn more about this one through the rest of the course than through a single worksheet sitting.</div>
+      </div>
+    </div>
+
+    <div class="session-end">
+      <label class="session-check"><input type="checkbox" id="session-3-done"> I've completed Session 3</label>
+      <p>Good place to stop — your answers are saved. <a href="#session-4">Continue to Your Priority Systems →</a></p>
+    </div>
+  </section>
+
+  <!-- ============ SESSION 4 ============ -->
+  <section class="session" id="session-4">
+    <div class="session-head">
+      <div>
+        <div class="session-index">04</div>
+        <h2>Your Priority Systems</h2>
+      </div>
+    </div>
+    <p style="color:var(--spruce-soft);max-width:38em;margin:1rem 0 1.6rem;">Below is a live snapshot of everything you've checked so far, ranked by how much you had to say in each system — across Overwhelm, Comfort &amp; Rest, and Regulation. This is a starting point, not a verdict. The systems doing the most work for your nervous system right now are the ones your home design should start with.</p>
+
+    <div id="snapshot"></div>
+
+    <h3 style="margin:2rem 0 .8rem;">My top priority systems</h3>
+    <p class="priority-note">Pre-filled from your tally above — yours to overrule. Edit any field, or click reset to pull the suggestion back in.</p>
+    <div class="priority-field"><label for="priority-1">1.</label><input type="text" id="priority-1"></div>
+    <div class="priority-field"><label for="priority-2">2.</label><input type="text" id="priority-2"></div>
+    <div class="priority-field"><label for="priority-3">3.</label><input type="text" id="priority-3"></div>
+    <button class="btn ghost small" id="reset-priority" type="button">Reset to suggested</button>
+
+    <div class="action-row" style="margin-top:1.8rem;">
+      <button class="btn btn-savepdf" type="button">&#8681; Save My Profile as a PDF</button>
+    </div>
+
+    <div class="note-box" style="margin-top:1rem;">These carry forward into your Design Brief in Module 3.
+    </div>
+    <div class="note-box"><strong>If you're designing for a shared home:</strong> hold onto this worksheet as-is. You'll bring your individual profile — not a compromised version of it — into the household conversation in Module 3.</div>
+
+    <div class="session-end">
+      <label class="session-check"><input type="checkbox" id="session-4-done"> I've completed the full assessment</label>
+      <p>That's all 8 systems. Save your profile as a PDF above if you haven't already, and carry your priority systems into Module 3.</p>
+    </div>
+  </section>
+
+  <footer>
+    The Neuro Aesthetic™ · The Sensory Profile™ · Module 1 self-assessment. Nothing on this page is saved once you close it — copy anything you want to keep before you go.
+  </footer>
+</main>
+
+<script>
+(function(){
+  const SYSTEMS = [
+    {key:'visual', name:'Visual'},
+    {key:'auditory', name:'Auditory'},
+    {key:'tactile', name:'Tactile'},
+    {key:'olfactory', name:'Olfactory'},
+    {key:'oral', name:'Oral / Food-Access'},
+    {key:'vestibular', name:'Vestibular'},
+    {key:'proprioceptive', name:'Proprioceptive'},
+    {key:'interoceptive', name:'Interoceptive'}
+  ];
+
+  function countFor(key){
+    const boxes = document.querySelectorAll('input[type=checkbox][data-system="'+key+'"]:not(.unsure-checkbox)');
+    let n = 0;
+    boxes.forEach(b => { if (b.checked) n++; });
+    return n;
+  }
+
+  function maxFor(key){
+    return document.querySelectorAll('input[type=checkbox][data-system="'+key+'"]:not(.unsure-checkbox)').length;
+  }
+
+  function anyUnsure(key){
+    const boxes = document.querySelectorAll('.unsure-checkbox[data-system="'+key+'"]');
+    let any = false;
+    boxes.forEach(b => { if (b.checked) any = true; });
+    return any;
+  }
+
+  function updatePills(){
+    SYSTEMS.forEach(s => {
+      const n = countFor(s.key);
+      const pill = document.getElementById('count-'+s.key);
+      if (pill){
+        pill.textContent = n + (n === 1 ? ' checked' : ' checked');
+        pill.classList.toggle('zero', n === 0);
+      }
+      const alt = document.getElementById('alt-'+s.key);
+      if (alt) alt.hidden = !anyUnsure(s.key);
+    });
+    updateProgressStrip();
+  }
+
+  function updateProgressStrip(){
+    for (let i = 1; i <= 4; i++){
+      const cb = document.getElementById('session-'+i+'-done');
+      const seg = document.querySelector('.seg[data-seg="'+i+'"]');
+      if (seg) seg.classList.toggle('done', !!(cb && cb.checked));
+    }
+  }
+
+  function updateSnapshot(){
+    const counts = SYSTEMS.map(s => ({...s, n: countFor(s.key), max: maxFor(s.key)}));
+    const sorted = [...counts].sort((a,b) => b.n - a.n);
+    const top3keys = sorted.slice(0,3).filter(s => s.n > 0).map(s => s.name);
+    const maxN = Math.max(1, ...counts.map(c => c.max));
+
+    const snapshot = document.getElementById('snapshot');
+    snapshot.innerHTML = sorted.map((s, i) => {
+      const pct = Math.round((s.n / maxN) * 100);
+      const isTop = i < 3 && s.n > 0;
+      return '<div class="snapshot-row'+(isTop?' top':'')+'">'
+        + '<span class="snapshot-name">'+s.name+'</span>'
+        + '<span class="snapshot-track"><span class="snapshot-fill" style="width:'+pct+'%"></span></span>'
+        + '<span class="snapshot-count">'+s.n+' / '+s.max+'</span>'
+        + '</div>';
+    }).join('');
+
+    ['priority-1','priority-2','priority-3'].forEach((id, i) => {
+      const input = document.getElementById(id);
+      if (!input) return;
+      if (input.dataset.userEdited === 'true') return;
+      input.value = top3keys[i] || '';
+    });
+  }
+
+  document.addEventListener('change', function(e){
+    if (e.target.matches('input[type=checkbox]')){
+      updatePills();
+      updateSnapshot();
+    }
+  });
+
+  ['priority-1','priority-2','priority-3'].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener('input', function(){
+      input.dataset.userEdited = 'true';
+    });
+  });
+
+  const resetBtn = document.getElementById('reset-priority');
+  if (resetBtn){
+    resetBtn.addEventListener('click', function(){
+      ['priority-1','priority-2','priority-3'].forEach(id => {
+        const input = document.getElementById(id);
+        if (input) input.dataset.userEdited = 'false';
+      });
+      updateSnapshot();
+    });
+  }
+
+  // ---------- Autosave (localStorage, this browser only) ----------
+  const SAVE_KEY = 'tna-sensory-profile-v1';
+
+  function collectPersistables(){
+    const result = [];
+    const counters = {};
+    function keyFor(el){
+      if (el.id) return 'id:'+el.id;
+      if (el.type === 'radio' && el.name) return 'radio:'+el.name+':'+el.value;
+      const sys = el.dataset.system || 'x';
+      const block = el.dataset.block || 'x';
+      const kind = el.classList.contains('unsure-checkbox') ? 'unsure' : 'chk';
+      const ck = sys+'|'+block+'|'+kind;
+      counters[ck] = (counters[ck]||0) + 1;
+      return 'auto:'+ck+':'+counters[ck];
+    }
+    document.querySelectorAll('input[type=checkbox], input[type=radio], input[type=text], textarea').forEach(el => {
+      result.push({el: el, key: keyFor(el)});
+    });
+    return result;
+  }
+
+  function saveState(){
+    try {
+      const obj = {};
+      collectPersistables().forEach(function(item){
+        const el = item.el;
+        if (el.type === 'checkbox' || el.type === 'radio'){
+          if (el.checked) obj[item.key] = true;
+        } else if (el.value) {
+          obj[item.key] = el.value;
+        }
+      });
+      ['priority-1','priority-2','priority-3'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) obj['edited:'+id] = el.dataset.userEdited === 'true';
+      });
+      localStorage.setItem(SAVE_KEY, JSON.stringify(obj));
+    } catch(e){ /* storage unavailable — downloads still work */ }
+  }
+
+  function loadState(){
+    let obj = {};
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (raw) obj = JSON.parse(raw);
+    } catch(e){ return; }
+    collectPersistables().forEach(function(item){
+      if (!(item.key in obj)) return;
+      const el = item.el;
+      if (el.type === 'checkbox' || el.type === 'radio'){
+        el.checked = !!obj[item.key];
+      } else {
+        el.value = obj[item.key];
+      }
+    });
+    ['priority-1','priority-2','priority-3'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && ('edited:'+id) in obj) el.dataset.userEdited = obj['edited:'+id] ? 'true' : 'false';
+    });
+  }
+
+  function clearState(){
+    if (!confirm('Clear all your saved answers on this page? This can\'t be undone — download a copy first if you want to keep it.')) return;
+    try { localStorage.removeItem(SAVE_KEY); } catch(e){}
+    location.reload();
+  }
+
+  document.addEventListener('change', saveState);
+  document.addEventListener('input', saveState);
+
+  const clearBtn = document.getElementById('clear-btn');
+  if (clearBtn) clearBtn.addEventListener('click', clearState);
+
+  // ---------- Save My Profile as a PDF (uses the browser's native print/Save-as-PDF) ----------
+  function expandTextareasForPrint(){
+    document.querySelectorAll('textarea').forEach(function(ta){
+      ta.dataset.origHeight = ta.style.height || '';
+      ta.style.height = 'auto';
+      ta.style.height = (ta.scrollHeight + 4) + 'px';
+    });
+  }
+
+  function restoreTextareasAfterPrint(){
+    document.querySelectorAll('textarea').forEach(function(ta){
+      ta.style.height = ta.dataset.origHeight || '';
+    });
+  }
+
+  window.addEventListener('beforeprint', expandTextareasForPrint);
+  window.addEventListener('afterprint', restoreTextareasAfterPrint);
+
+  function saveAsPDF(){
+    expandTextareasForPrint();
+    window.print();
+  }
+
+  document.querySelectorAll('.btn-savepdf').forEach(function(btn){
+    btn.addEventListener('click', saveAsPDF);
+  });
+
+  loadState();
+  updatePills();
+  updateSnapshot();
+})();
+</script>
+
+</body>
+</html>

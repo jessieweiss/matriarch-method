@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Energy Profile — a Matriarch Method self-assessment</title>
+<meta name="description" content="A free self-assessment from the Matriarch Method: discover your natural energy — The Visionary, The Nurturer, The Driver, or The Expert — and what your home should do about it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--paper:#F3F1EA; --paper-tint:#E9EAE0; --spruce:#2C3A33; --spruce-soft:#54655B;
+--sage:#8FA28C; --ochre:#A9742F; --ochre-deep:#8C5E20; --line:#C9CBBE; --max:720px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;}}
+body{background:var(--paper);color:var(--spruce);font-family:'Atkinson Hyperlegible',system-ui,sans-serif;font-size:1.05rem;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.4rem;}
+header{padding:1.3rem 0;border-bottom:1px solid var(--line);}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+.wordmark{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--spruce);text-decoration:none;}
+.wordmark span{color:var(--ochre-deep);}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;}
+.brand img{height:34px;width:auto;display:block;}
+.kicker{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;line-height:1.18;}
+h1{font-size:clamp(1.9rem,5vw,2.7rem);}
+h2{font-size:clamp(1.45rem,3.6vw,1.9rem);}
+.eyebrow{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem;}
+.eyebrow::before{content:"";width:1.8rem;height:1px;background:var(--ochre);}
+.btn{display:inline-block;background:var(--ochre);color:#fff;text-decoration:none;font-weight:700;font-size:1rem;padding:.9rem 1.7rem;border-radius:999px;border:none;cursor:pointer;font-family:inherit;}
+.btn:hover{background:var(--ochre-deep);}
+.btn.ghost{background:transparent;color:var(--spruce);border:1.5px solid var(--spruce);}
+.btn.ghost:hover{background:var(--spruce);color:var(--paper);}
+a:focus-visible,button:focus-visible{outline:3px solid var(--ochre);outline-offset:3px;border-radius:4px;}
+
+.screen{display:none;padding:3.2rem 0 4.5rem;}
+.screen.active{display:block;}
+
+.intro p{max-width:36em;margin:1rem 0;color:var(--spruce-soft);}
+.intro .lede{font-size:1.15rem;color:var(--spruce);}
+.meta-row{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.6rem 0 2rem;font-size:.9rem;color:var(--spruce-soft);}
+.meta-row div{border-left:2px solid var(--sage);padding-left:.8rem;}
+
+.progress{height:5px;background:var(--paper-tint);border-radius:99px;overflow:hidden;margin:0 0 .7rem;}
+.progress i{display:block;height:100%;background:var(--sage);width:0;transition:width .25s ease;}
+.q-count{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--spruce-soft);font-weight:700;margin-bottom:1.6rem;}
+.q-text{font-family:'Fraunces',serif;font-size:clamp(1.3rem,3.4vw,1.65rem);font-weight:500;margin-bottom:1.7rem;max-width:24em;}
+.opts{display:grid;gap:.7rem;}
+.opt{
+text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:10px;
+padding:1rem 1.2rem;font:inherit;color:var(--spruce);cursor:pointer;transition:border-color .15s ease,background .15s ease;
+}
+.opt:hover{border-color:var(--sage);background:#FBFAF6;}
+.opt.selected{border-color:var(--ochre);background:#FBF6EC;}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;}
+.back{background:none;border:none;font:inherit;font-weight:700;color:var(--spruce-soft);cursor:pointer;padding:.5rem .2rem;}
+.back:hover{color:var(--spruce);}
+.back[disabled]{visibility:hidden;}
+
+.result-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:2rem;margin:1.8rem 0;}
+.result-card .label{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);}
+.result-card h2{margin:.4rem 0 .3rem;}
+.truth{font-family:'Fraunces',serif;font-style:italic;font-size:1.18rem;color:var(--spruce-soft);margin-bottom:1rem;}
+.result-card p{color:var(--spruce-soft);margin-bottom:1rem;}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.3rem;border-top:1px solid var(--line);padding-top:1.3rem;}
+.spec h3{font-size:.82rem;letter-spacing:.11em;text-transform:uppercase;font-family:'Atkinson Hyperlegible',sans-serif;font-weight:700;margin-bottom:.5rem;}
+.spec .do h3{color:var(--ochre-deep);}
+.spec .avoid h3{color:var(--spruce-soft);}
+.spec ul{list-style:none;}
+.spec li{font-size:.94rem;color:var(--spruce-soft);padding:.28rem 0 .28rem 1.1rem;position:relative;}
+.spec .do li::before{content:"—";position:absolute;left:0;color:var(--sage);}
+.spec .avoid li::before{content:"—";position:absolute;left:0;color:var(--line);}
+.pending-card{background:var(--paper-tint);border:1px dashed var(--line);border-radius:12px;padding:1.6rem 2rem;margin:1.8rem 0;}
+.pending-card .label{color:var(--spruce-soft);}
+.secondary-line{margin:1.2rem 0 0;color:var(--spruce-soft);}
+.brief{background:#fff;border:1px solid var(--line);border-radius:12px;padding:2rem;margin:1.6rem 0;}
+.brief-heading{font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--ochre-deep);margin-bottom:1.2rem;}
+.brief-cat{border-top:1px solid var(--line);padding:1.1rem 0;}
+.brief-cat:first-of-type{border-top:none;padding-top:0;}
+.brief-cat h4{font-family:'Atkinson Hyperlegible',sans-serif;font-size:.82rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--spruce);margin-bottom:.6rem;}
+.brief-list{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;}
+.brief-list li{background:var(--paper-tint);border-radius:99px;padding:.35rem .9rem;font-size:.88rem;color:var(--spruce);}
+.brief-modifier{margin-top:.7rem;font-size:.9rem;color:var(--spruce-soft);}
+.brief-modifier strong{color:var(--ochre-deep);}
+.brief-empty{font-size:.9rem;color:var(--spruce-soft);font-style:italic;}
+.distribution{margin:2rem 0;}
+.dist-row{display:grid;grid-template-columns:9rem 1fr 3rem;align-items:center;gap:.8rem;margin-bottom:.6rem;font-size:.92rem;}
+.dist-row .name{color:var(--spruce);font-weight:700;}
+.dist-bar{height:9px;background:var(--paper-tint);border-radius:99px;overflow:hidden;}
+.dist-bar i{display:block;height:100%;background:var(--sage);}
+.dist-row .score{color:var(--spruce-soft);text-align:right;}
+.disclaimer{font-size:.88rem;color:var(--spruce-soft);border-left:3px solid var(--sage);padding-left:1rem;margin:2rem 0;max-width:38em;}
+.cta-block{background:var(--spruce);color:var(--paper);border-radius:12px;padding:2rem;margin-top:2.2rem;}
+.cta-block h2{color:#fff;margin-bottom:.6rem;}
+.cta-block p{color:#D7DCD2;margin-bottom:1.4rem;max-width:34em;}
+.cta-block .row{display:flex;gap:1rem;flex-wrap:wrap;}
+.cta-block .btn.ghost{color:var(--paper);border-color:var(--paper);}
+.cta-block .btn.ghost:hover{background:var(--paper);color:var(--spruce);}
+.retake{margin-top:1.6rem;}
+footer{border-top:1px solid var(--line);padding:1.8rem 0;font-size:.86rem;color:var(--spruce-soft);}
+@media (max-width:600px){.spec{grid-template-columns:1fr;}.dist-row{grid-template-columns:6.5rem 1fr 2.5rem;}}
+.save-row{margin:0 0 1.8rem;}
+.save-row .btn{display:inline-flex;align-items:center;gap:.5rem;}
+@media print{
+.save-row,.retake,header .kicker{display:none!important;}
+body{background:#fff;}
+*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important;}
+.result-card,.brief,.cta-block{break-inside:avoid;}
+@page{margin:0.6in;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+<a class="brand" href="#top">
+<img src="data:image/png;base64,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" alt="The Neuro Aesthetic logo — a brain-shaped house cross-section">
+<span class="wordmark">the neuro <span>aesthetic</span></span>
+</a>
+<span class="kicker">The Energy Profile</span>
+</div>
+</header>
+
+<!-- INTRO -->
+<section class="screen intro active" id="intro">
+<div class="wrap">
+<p class="eyebrow">A free self-assessment</p>
+<h1>How does your energy naturally move?</h1>
+<p class="lede">Not a personality test. This profile looks at how your nervous system naturally moves, regulates, and engages with the world — and translates that into what your home should actually do for you.</p>
+<div class="meta-row">
+<div><strong>40 questions</strong><br>about 13 minutes</div>
+<div><strong>4 energy types</strong><br>plus how openly you express them</div>
+<div><strong>No wrong answers</strong><br>this is a design tool, not a diagnosis</div>
+</div>
+<p>Go with your first instinct — there's no timer, and there are no wrong answers. Answer for how you naturally are, not how you think you should be.</p>
+<p style="margin-top:1.6rem;"><button class="btn" onclick="startQuiz()">Begin the profile</button></p>
+</div>
+</section>
+
+<!-- QUIZ -->
+<section class="screen" id="quiz">
+<div class="wrap">
+<div class="progress"><i id="bar"></i></div>
+<p class="q-count" id="qcount"></p>
+<h2 class="q-text" id="qtext"></h2>
+<div class="opts" id="opts"></div>
+<div class="nav-row">
+<button class="back" id="backBtn" onclick="goBack()">← Back</button>
+<span class="kicker" id="hint">Choose what feels most natural</span>
+</div>
+</div>
+</section>
+
+<!-- TRANSITION -->
+<section class="screen intro" id="transition">
+<div class="wrap">
+<p class="eyebrow">Part two · an add-on</p>
+<h1>How openly do you show it?</h1>
+<p class="lede">Your energy type describes your design vocabulary. This short second part describes its volume — whether that energy shows up the same everywhere, or shows up fuller in the spaces that are only yours.</p>
+<p>A leaning toward "contained" here can be a natural preference. It can also be self-protective — nervous system regulation, learned caution, something like rejection sensitivity (RSD). This can't tell you which, and it doesn't need to: either way, the pattern is real and worth designing for.</p>
+<p>Same rules: go with your first instinct, no wrong answers. Ten quick questions.</p>
+<p style="margin-top:1.6rem;"><button class="btn" onclick="startExpression()">Continue</button></p>
+</div>
+</section>
+
+<!-- RESULTS -->
+<section class="screen" id="results">
+<div class="wrap">
+<p class="eyebrow">Your energy profile</p>
+<div style="background:var(--paper-tint);border-left:3px solid var(--sage);padding:1rem 1.2rem;margin-bottom:1.8rem;border-radius:0 8px 8px 0;">
+<p style="font-size:.9rem;color:var(--spruce-soft);margin:0;"><strong style="color:var(--spruce);">How to use your profile:</strong> Your primary energy is below, with your full distribution across all four types. Most people are a blend — your secondary energy shapes and modifies your primary, it doesn't cancel it out.</p>
+</div>
+<p style="color:var(--spruce-soft);font-size:.95rem;margin-bottom:1.8rem;max-width:38em;">This points to a likely energy type — held loosely. If some of your answers reflect learned protection more than natural pattern, your underlying energy may look different than what's below, and that's worth staying curious about rather than resolving today. Either way, what follows is a solid signal of what would support you right now, in this season — not a fixed fact about who you'll always be.</p>
+<div class="save-row"><button class="btn" onclick="window.print()">&#8681; Save your results as a PDF</button></div>
+<div id="resultBody"></div>
+<div class="distribution" id="distBody"></div>
+<div id="exprBody"></div>
+<p class="disclaimer">The Energy Profile is a design-discovery tool, not a diagnostic, medical, or psychological instrument. It describes design hypotheses and current needs — nothing here is a fixed fact about who you are, and nothing about you needs fixing.</p>
+<div class="cta-block">
+<h2>Your energy profile is done — bring it back into the course.</h2>
+<p>Head back to the Module 1 course page and do two things: fill in your Energy Profile worksheet with what you found here, and share your result in the community.</p>
+</div>
+<p class="retake"><button class="back" onclick="location.reload()" style="visibility:visible;">↺ Retake the profile</button></p>
+</div>
+</section>
+
+<footer>
+<div class="wrap">© 2026 Jessica Weiss · Matriarch interiors + architecture · <em>Design for every mind.</em></div>
+</footer>
+
+<script>
+// k1=Air (Upward/Expressive/Light) k2=Water (Soft/Flowing/Grounded) k3=Fire (Bold/Driving/Forceful) k4=Earth (Precise/Refining/Still)
+const QUESTIONS = [
+{q:"How would you describe your natural movement or presence?",o:[{t:"Still, contained, precise, observant",k:4},{t:"Gentle, flowing, relaxed, subtle",k:2},{t:"Light, buoyant, spontaneous, a little random",k:1},{t:"Strong, active, forward-moving, dynamic",k:3}]},
+{q:"When you walk into a new space, what do you notice first?",o:[{t:"What's working, what's off, what could be improved",k:4},{t:"The energy, vibe, or what feels fun",k:1},{t:"How it feels emotionally or sensorially",k:2},{t:"What's happening and where action is needed",k:3}]},
+{q:"What do you naturally prioritize, without trying?",o:[{t:"Accuracy and respect",k:4},{t:"Happiness and enjoyment",k:1},{t:"Progress and results",k:3},{t:"Comfort and harmony",k:2}]},
+{q:"Which statement sounds most like you?",o:[{t:"I naturally see how things could work better",k:4},{t:"I'm most comfortable once we're in motion",k:3},{t:"I like to keep things light and explore ideas as they come",k:1},{t:"I like to understand the details before moving forward",k:2}]},
+{q:"When plans change suddenly, you tend to…",o:[{t:"Pause, reassess, and recalibrate",k:4},{t:"Laugh it off and adapt",k:1},{t:"Take charge and redirect",k:3},{t:"Feel unsettled but go along",k:2}]},
+{q:"What kind of environment helps you thrive most?",o:[{t:"Clean, ordered, refined",k:4},{t:"Flexible, playful, full of variety",k:1},{t:"Energizing, bold, motivating",k:3},{t:"Calm, cozy, soothing, and connected",k:2}]},
+{q:"What frustrates your body the fastest in a space?",o:[{t:"Disorder, inefficiency, or lack of clarity",k:4},{t:"Feeling emotionally overwhelmed or rushed",k:2},{t:"Not being able to move, act, or progress",k:3},{t:"Feeling heavy, stuck, or constrained",k:1}]},
+{q:"Which best describes your natural body language?",o:[{t:"Strong, bold, grounded",k:3},{t:"Animated, expressive, bouncy",k:1},{t:"Poised, minimal, deliberate",k:4},{t:"Soft, graceful, gentle",k:2}]},
+{q:"When you're under pressure, your first instinct is to…",o:[{t:"Tighten control and focus on precision",k:4},{t:"Lighten the mood or escape into something fun",k:1},{t:"Withdraw and think things through",k:2},{t:"Push harder and stay active",k:3}]},
+{q:"How do others often experience you?",o:[{t:"Thoughtful, exacting, composed",k:4},{t:"Driven, intense, energetic",k:3},{t:"Kind, calming, sensitive",k:2},{t:"Bright, fun, optimistic",k:1}]},
+{q:"When you're tired, you're most likely to…",o:[{t:"Become critical or overly focused",k:4},{t:"Get scattered or silly",k:1},{t:"Keep going past your limits",k:3},{t:"Get quiet or withdrawn",k:2}]},
+{q:"Which role feels most natural in a group?",o:[{t:"The strategist or refiner",k:4},{t:"The motivator or driver",k:3},{t:"The listener or harmonizer",k:2},{t:"The energizer or entertainer",k:1}]},
+{q:"You're most often misunderstood as…",o:[{t:"Pushy or intense",k:3},{t:"Too sensitive or passive",k:2},{t:"Critical or rigid",k:4},{t:"Flighty or unreliable",k:1}]},
+{q:"When speaking, your voice tends to be…",o:[{t:"Clear and precise",k:4},{t:"Strong and emphatic",k:3},{t:"Soft and gentle",k:2},{t:"Animated and expressive",k:1}]},
+{q:"At the end of a long day, what restores you fastest?",o:[{t:"Order, solitude, or mental clarity",k:4},{t:"Physical movement or accomplishment",k:3},{t:"Quiet connection or comfort",k:2},{t:"Laughter, novelty, or play",k:1}]},
+{q:"When shopping or making decisions, you tend to…",o:[{t:"Evaluate carefully for quality",k:4},{t:"Decide quickly and move on",k:3},{t:"Take time and second-guess",k:2},{t:"Go with someone and keep it fun",k:1}]},
+{q:"As a child, you were often described as…",o:[{t:"Mature, serious, responsible",k:4},{t:"Playful, energetic, expressive",k:1},{t:"Adventurous, active, bold",k:3},{t:"Sweet, thoughtful, sensitive",k:2}]},
+{q:"When you feel most like yourself, you're usually…",o:[{t:"Creating clarity or refinement",k:4},{t:"Free, spontaneous, expressive",k:1},{t:"Achieving or building something",k:3},{t:"Comfortable and emotionally connected",k:2}]},
+{q:"What do you most appreciate in others and your environment?",o:[{t:"Respect and structure",k:4},{t:"Encouragement and momentum",k:3},{t:"Reassurance and warmth",k:2},{t:"Fun, surprises, flexibility",k:1}]},
+{q:"When life feels “too much,” it's usually because…",o:[{t:"Things feel sloppy or disrespectful",k:4},{t:"Everything feels too serious or heavy",k:1},{t:"You're being slowed or blocked",k:3},{t:"There's too much emotional intensity",k:2}]},
+{q:"What are you most prone to overdoing?",o:[{t:"Over-analyzing or perfecting",k:4},{t:"Over-scheduling and burning out",k:3},{t:"Worrying or overthinking",k:2},{t:"Saying yes to too much",k:1}]},
+{q:"When you're creative or thinking freely, your mind tends to…",o:[{t:"Refine and organize",k:4},{t:"Lock onto a goal",k:3},{t:"Weave gently between thoughts",k:2},{t:"Bounce between ideas",k:1}]},
+{q:"If you doodle or sketch absent-mindedly, it usually looks like…",o:[{t:"Grids, boxes, structured lines",k:4},{t:"Bold angles or strong shapes",k:3},{t:"Swirls, vines, flowing lines",k:2},{t:"Stars, hearts, playful shapes",k:1}]},
+{q:"What kind of environment inspires you most?",o:[{t:"Minimal, ordered, refined",k:4},{t:"Bold, dramatic, high-energy",k:3},{t:"Soft, cozy, nurturing",k:2},{t:"Bright, playful, energetic",k:1}]},
+{q:"Which landscape feels most like “home”?",o:[{t:"Forests, gardens, structured spaces",k:4},{t:"Mountains, deserts, dramatic terrain",k:3},{t:"Water, beaches, gentle retreats",k:2},{t:"Open skies, meadows, airy places",k:1}]},
+{q:"When you're at your best, you're motivated to…",o:[{t:"Improve and refine",k:4},{t:"Make an impact",k:3},{t:"Create thoughtful plans",k:2},{t:"Explore ideas and possibilities",k:1}]},
+{q:"At the end of the day, you feel most yourself after…",o:[{t:"Creating order or clarity",k:4},{t:"Meaningful accomplishment",k:3},{t:"Deep connection",k:2},{t:"Laughter and lightness",k:1}]},
+{q:"When you have an unscheduled afternoon completely to yourself, you're most likely to…",o:[{t:"Organize, reflect, or focus on something mentally engaging",k:4},{t:"Use the time productively or physically",k:3},{t:"Create a cozy, low-pressure atmosphere and ease into the time",k:2},{t:"Follow whatever feels fun or interesting in the moment",k:1}]},
+{q:"When you're in a situation where you're expected to “perform” or be professional, you tend to…",o:[{t:"Become more controlled, precise, and reserved",k:4},{t:"Step up, take charge, and deliver",k:3},{t:"Soften yourself and try not to take up too much space",k:2},{t:"Turn on charm, humor, or enthusiasm",k:1}]},
+{q:"When you feel truly safe and unobserved, your energy naturally becomes…",o:[{t:"Quiet, contained, thoughtful",k:4},{t:"Focused, driven, kinetic",k:3},{t:"Calm, flowing, receptive",k:2},{t:"Playful, expressive, light",k:1}]}
+];
+
+const PROFILES = {
+1:{name:"The Visionary",element:"Air",sub:"Playful, Light, Spontaneous",
+truth:"“Light, buoyant, and always looking for what's possible.”",
+personality:"You bring brightness, movement, and possibility into any space. Optimistic, idea-driven, and naturally social, you thrive when life feels fun and flexible. Others are drawn to your energy because you keep things lighthearted and bring fresh perspectives.",
+challenges:"Sometimes you may struggle with follow-through, feeling scattered, or being seen as “too much.” Structure and grounding help balance your brilliance. When supported, this energy is creative, energized, magnetic, and flexible. When unsupported, it can scatter, overwhelm, or get labeled as flighty or unreliable.",
+qualities:["Light","Buoyant","Crisp","Fun","Cute","Animated","Bright","Warm","Ingenue","Playful"],
+lines:["Upward movement","Lifted forms","Scalloped edges","Light arches","Irregular or playful curves","Slight asymmetry","Forms that move visually rather than sit heavily"],
+textures:["Crisp or crinkled fabrics","Light and airy fabrics","Bumpy textures","Open weave","Embroidery","Dimensional fabrics","Wrinkled textures","Soft cotton","Down-filled materials","Fluffy textures","Fluttering textiles","Easy / breezy fabrics"],
+structure:["Pleats and upward folds","Slight structure","Small playful details","Light to medium weight","Structured while still visually light","Light knits"],
+pattern:["Random, scattered, disconnected","Upward movement","Polka dots","Animated patterns","Unexpected or whimsical motifs","Fruit patterns","Random-width or multicolored stripes","Medium-to-high contrast florals","Hearts","Irregular plaids and grids"],
+palette:["Tints — pure hue + white","Bright and warm color pops","Mint","Warm white / winter white","Navy","Dark chocolate brown","Gold rather than silver","Faded white denim","Whitewashed effects","Sparkle and sequins","Avoid dominant stark black"]},
+2:{name:"The Nurturer",element:"Water",sub:"Gentle, Thoughtful, Harmonizing",
+truth:"“Flowing, receptive, and most at ease when things feel connected.”",
+personality:"You're steady, caring, and deeply empathetic. People feel safe around you because you bring calm, compassion, and patience. You naturally notice details others overlook, and you value connection and comfort above all else.",
+challenges:"You may sometimes withdraw, overthink, or be taken for granted. Boundaries and self-care are essential to keep your energy balanced. When supported, this energy is calm, grounded, emotionally present, and harmonizing. When unsupported, it can withdraw, feel anxious, overstimulated, or unseen.",
+qualities:["Detailed","Fluid","Relaxed","Muted","Soft","Subtle","Blended","Connected","Cascading","Flowing","Comfort-oriented"],
+lines:["Elongated S-curves","Teardrops","Soft rectangles","Elongated ovals","Softened rectangles","Ruching","Draping","Downward slopes","Rounded edges","Connected forms"],
+textures:["Plush","Soft","Cozy","Comfortable","Velvet","Suede"],
+structure:["Medium-weight fabrics","Relaxed","Draping","Fluid and flowing","Swingy","Soft stretch","Layered","Loose"],
+pattern:["Detailed, blended, muted, subtle","Soft flowing curves","Diffuse backgrounds","Low contrast","Connected movement","Florals","Low-contrast plaids","Low-contrast stripes"],
+palette:["Tones — pure hue + grey","Muted and softened","Charcoal rather than stark black","Navy","Ivory rather than stark white","Grey-undertone denim","Milk chocolate brown","Greyed silver","Brushed silver","Pewter","Pearl","Soft iridescence"]},
+4:{name:"The Expert",element:"Earth",sub:"Calm, Precise, Reflective",
+truth:"“Precise, contained, and steadied by clarity.”",
+personality:"You are thoughtful, analytical, and exacting. With a natural eye for precision, you see what others miss and refine things to their highest potential. Others admire your clarity, focus, and depth of thought.",
+challenges:"At times, you may be perceived as critical, perfectionistic, or withdrawn. Balance comes when you allow room for flexibility and softness. When supported, this energy is clear, respected, insightful, and refining. When unsupported, it can turn rigid, overly critical, withdrawn, or pressured.",
+qualities:["Constant","Still","Bold","Striking","Structured","Clean","Precise","Efficient"],
+lines:["Elongated ovals","Symmetry","Right angles","Rectangles","Parallel lines","Straight lines","Trim / fitted forms","Exacting proportions","Hidden fasteners","Structural honesty","Exposed structure"],
+textures:["Smooth","Sleek","Slick","High shine","Tight weave","Minimal texture","Polished","Reflective","Patent-like finishes","Lightweight tight knits","Ribbed knits"],
+structure:["Firm to stiff weight","Shape-holding materials","Structured","Minimal draping","Self-supporting forms","Leather","Little movement","Contrast stitching","Exposed structure"],
+pattern:["Bold symmetrical patterns","Very dramatic or very plain","Parallel lines","Rectangles","Ovals","High contrast or no contrast","Stripes","Windowpane","Houndstooth","Checks","Stamp-like repetition","Animal prints","High-contrast florals","2–4 colors in a pattern"],
+palette:["Pure / saturated color","Bold pure hues","Pure white","Pure black","Saturated blue denim","Deep indigo","Colorful denim","Metallic","Satin","Sateen","Silver metals","Icy tints with sheen or reflection","Avoid muddy color, brown, and grey within a pure palette — blend gently in mixed profiles"]},
+3:{name:"The Driver",element:"Fire",sub:"Bold, Dynamic, Action-Oriented",status:"Design language still in development — newer and less locked-down than the other three types.",
+truth:"“Forward, kinetic, and driven by momentum.”",
+personality:"You are strong, determined, and motivated to make things happen. You thrive on movement, progress, and tangible results. Others rely on your intensity and persistence — you're the person who gets things done.",
+challenges:"Sometimes your boldness may feel overwhelming to others, or you may push yourself into burnout by staying busy without rest. Learning to soften your edges helps you thrive. When supported, this energy is confident, effective, impactful, and energized by momentum. When unsupported, it can burn out, grow restless, or turn frustrated.",
+qualities:["Bold","Driving","Forceful","Practical","Results-oriented","Accomplishment-oriented","Good at multitasking","Forward","Kinetic","Driven"],
+lines:["Angular","Swift, upward-moving lines","Asymmetrical shapes (early direction)"],
+textures:["Textured, tactile surfaces (specific direction not yet finalized)"],
+structure:["Needs openness in the floor plan to allow for swift movement","Practical, functional construction prioritized over purely decorative"],
+pattern:null,
+palette:null}
+};
+
+// Expression Mode: a second, independent scale — not a fifth energy type.
+// O = outward/expressed, I = inward/contained. Grounded in how openly a person
+// shows their energy day to day, not in astrology or any external system.
+const EXPR_QUESTIONS = [
+{q:"When you love something, you tend to…",o:[{t:"Show it — display it, wear it, talk about it",k:"O"},{t:"Keep it close — private collections, quiet enjoyment",k:"I"}]},
+{q:"Compare your shared spaces (living room, entryway) to your private ones (bedroom, closet, office).",o:[{t:"They look and feel like me, fully — no real difference",k:"O"},{t:"My private spaces feel much more like me than my shared ones do",k:"I"}]},
+{q:"When you're excited about an idea, you…",o:[{t:"Say it out loud, right away",k:"O"},{t:"Sit with it privately first — or keep it to myself entirely",k:"I"}]},
+{q:"Someone who just met you would describe your energy as…",o:[{t:"Exactly how I actually feel inside",k:"O"},{t:"Calmer or more contained than how I actually feel inside",k:"I"}]},
+{q:"Have you been told you're “too much,” and changed how you show up because of it?",o:[{t:"Not really — I show up the same regardless of who's around",k:"O"},{t:"Yes, and I still adjust depending on the room",k:"I"}]},
+{q:"In a full room, your energy is…",o:[{t:"Visible — people can read it on me",k:"O"},{t:"Mostly internal — people would be surprised how much is actually going on",k:"I"}]},
+{q:"Your self-expression — style, art, how you decorate — tends to be…",o:[{t:"Bold and visible, out in the world",k:"O"},{t:"Reserved outwardly, fuller in private — journals, art, home",k:"I"}]},
+{q:"When deciding what to put on display versus put away, you…",o:[{t:"Display what matters most to me",k:"O"},{t:"Keep what matters most tucked away, just for me",k:"I"}]},
+{q:"If your whole home matched your true energy — exactly as loud as it actually is — that would feel…",o:[{t:"Right. That's exactly what I want",k:"O"},{t:"Like too much, in the rooms other people see",k:"I"}]},
+{q:"You feel safest expressing your full self…",o:[{t:"Anywhere, including around others",k:"O"},{t:"Alone, or somewhere only I control",k:"I"}]}
+];
+
+const EXPR_RESULTS = {
+outward:{label:"Mostly Outward",
+body:"Your energy shows up the same wherever you are — there's little gap between what you feel and what you show. Worth a quiet check-in, though: does that visibility feel chosen, or does it ever feel compulsory — like something you couldn't dial back even if you wanted to? Either way, your home doesn't need a hard line between “public” and “private” expression."},
+blended:{label:"Blended",
+body:"Context shapes how much you show. That may be a comfortable, natural variation — or it may be your nervous system calibrating how safe a space feels before it lets more out. This can't tell the two apart, and it doesn't need to. Either way, you likely have a fuller version of yourself that comes out in the right spaces, and a more contained version for everywhere else — both real."},
+inward:{label:"Mostly Inward",
+body:"Your fullest expression lives in private, personal spaces — even if that's not obvious to people who only see your public-facing rooms or presentation. This can be a stable, natural preference. It can also be self-protective — nervous system regulation, learned caution after being misread or dismissed, or something like rejection sensitivity (RSD). This can't tell you which, and it doesn't need to: either way, the pattern is real, and it's not a lesser version of your energy. It's just where it's safest to be loud right now."}
+};
+
+function exprApplyNote(bucket){
+if(bucket==="outward"){
+return `Let whatever type you're drawn to run through your whole home — shared and private spaces alike. There's no need to dial it back anywhere.`;
+}
+if(bucket==="inward"){
+return `This can mean two different things, and they point to different rooms doing different work. If it's social protection — wanting a buffer before being seen — concentrate that type's design language, fully, in the rooms only you control: bedroom, closet, personal office, art, small displayed objects. Shared rooms can stay more neutral without that meaning the rest isn't really you. If it's closer to visual or sensory threshold — needing to see less in order to feel calm — concentrating it somewhere "loud" won't help. The fix instead is turning the volume down everywhere: the same lines, colors, and materials, at lower density, contrast, and saturation, throughout the whole home, private rooms included.`;
+}
+return `You likely need both: a fuller expression somewhere that's fully yours, and a gentler version everywhere else. Notice whether "gentler" means smaller and more private, or just quieter and lower-contrast — those call for different rooms to do the work.`;
+}
+
+let answers = [];
+let idx = 0;
+let order = [];
+let exprOrder = [];
+let phase = "type"; // "type" | "expr"
+
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]];}return x;}
+
+function startQuiz(){
+order = QUESTIONS.map(q=>shuffle(q.o));
+answers = new Array(QUESTIONS.length).fill(null);
+idx = 0;
+phase = "type";
+show("quiz"); render();
+}
+
+let exprAnswers = [];
+
+function startExpression(){
+exprOrder = EXPR_QUESTIONS.map(q=>shuffle(q.o));
+exprAnswers = new Array(EXPR_QUESTIONS.length).fill(null);
+phase = "expr";
+idx = 0;
+show("quiz"); render();
+}
+
+function show(id){
+document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+window.scrollTo(0,0);
+}
+
+function render(){
+const list = phase==="type" ? QUESTIONS : EXPR_QUESTIONS;
+const ord = phase==="type" ? order : exprOrder;
+const ans = phase==="type" ? answers : exprAnswers;
+const total = list.length;
+document.getElementById("bar").style.width = ((idx)/total*100)+"%";
+document.getElementById("qcount").textContent = (phase==="type" ? "Part one · Question " : "Part two · Question ")+(idx+1)+" of "+total;
+document.getElementById("qtext").textContent = list[idx].q;
+const box = document.getElementById("opts");
+box.innerHTML = "";
+ord[idx].forEach(opt=>{
+const b = document.createElement("button");
+b.className = "opt"+(ans[idx]===opt.k?" selected":"");
+b.textContent = opt.t;
+b.onclick = ()=>{
+ans[idx]=opt.k;
+if(idx<total-1){ idx++; render(); }
+else if(phase==="type"){ show("transition"); }
+else { finish(); }
+};
+box.appendChild(b);
+});
+document.getElementById("backBtn").disabled = idx===0;
+}
+
+function goBack(){ if(idx>0){ idx--; render(); } }
+
+const CATS = [["Qualities","qualities"],["Lines","lines"],["Textures","textures"],["Structure","structure"],["Pattern","pattern"],["Palette","palette"]];
+
+function catBlock(title, primaryList, primaryName, secondaryList, secondaryName){
+let html = `<div class="brief-cat"><h4>${title}</h4>`;
+if(primaryList && primaryList.length){
+html += `<ul class="brief-list">${primaryList.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+if(secondaryName && secondaryList && secondaryList.length){
+html += `<p class="brief-modifier"><strong>Modified by ${secondaryName}:</strong> ${secondaryList.slice(0,5).join(", ")}</p>`;
+} else if(secondaryName && !(secondaryList && secondaryList.length)){
+html += `<p class="brief-modifier">${secondaryName}'s ${title.toLowerCase()} direction isn't defined yet — lead with ${primaryName} alone here.</p>`;
+}
+} else {
+// primary has no data for this category
+if(secondaryName && secondaryList && secondaryList.length){
+html += `<p class="brief-empty">${primaryName}'s ${title.toLowerCase()} direction is still in development.</p><p class="brief-modifier"><strong>Lean on ${secondaryName} instead:</strong> ${secondaryList.slice(0,5).join(", ")}</p>`;
+} else {
+html += `<p class="brief-empty">Not yet defined — ${primaryName}'s ${title.toLowerCase()} direction is still in development.</p>`;
+}
+}
+html += `</div>`;
+return html;
+}
+
+function renderBrief(P, S){
+let html = `<div class="brief">`;
+html += S
+? `<p class="brief-heading">Design brief — ${P.name} led, integrated with ${S.name}</p>`
+: `<p class="brief-heading">Design brief — ${P.name}</p>`;
+CATS.forEach(([title,key])=>{
+html += catBlock(title, P[key], P.name, S ? S[key] : null, S ? S.name : null);
+});
+html += `</div>`;
+return html;
+}
+
+function finish(){
+const tally = {1:0,2:0,3:0,4:0};
+answers.forEach(k=>{ if(k) tally[k]++; });
+const sorted = Object.entries(tally).sort((a,b)=>b[1]-a[1]);
+const [pKey,pScore] = sorted[0];
+const [sKey,sScore] = sorted[1];
+const primaryKey = Number(pKey), secondaryKey = Number(sKey);
+const strongSecondary = sScore >= Math.max(4, pScore*0.55);
+
+const oCount = exprAnswers.filter(k=>k==="O").length;
+const iCount = exprAnswers.filter(k=>k==="I").length;
+const exprBucket = oCount>=7 ? "outward" : oCount<=3 ? "inward" : "blended";
+const ER = EXPR_RESULTS[exprBucket];
+
+let html = "";
+
+const P = PROFILES[primaryKey];
+document.title = "My Energy Profile \u2014 " + P.name;
+const S = strongSecondary ? PROFILES[secondaryKey] : null;
+
+html += `
+<div class="result-card">
+<span class="label">Primary energy · ${pScore} of ${QUESTIONS.length}</span>
+<h2>${P.name} <span style="font-weight:400;color:var(--spruce-soft);font-size:.62em;">— ${P.element}</span></h2>
+${P.status ? `<p class="kicker" style="margin:-.2rem 0 .9rem;">${P.status}</p>` : ""}
+<p class="truth">${P.truth}</p>
+<p>${P.personality}</p>
+<p style="font-size:.94rem;"><strong style="color:var(--spruce);">Where this can trip you up:</strong> ${P.challenges}</p>
+</div>`;
+
+if(S){
+html += `<p class="secondary-line">Your secondary energy is <strong>${S.name} — ${S.element}</strong> (${sScore} of ${QUESTIONS.length}) — <em>${S.truth.replace(/“|”/g,"")}</em>. Secondary energy modifies your primary rather than replacing it: it shapes texture, contrast, and expression, and can become more visible under pressure or in professional settings.${S.status ? ` <em>(${S.status})</em>` : ""}</p>`;
+} else {
+html += `<p class="secondary-line">Your answers point strongly to a single energy — your remaining leanings were spread fairly evenly across the other types.</p>`;
+}
+
+html += renderBrief(P, S);
+
+document.getElementById("resultBody").innerHTML = html;
+
+let distHtml = `<p class="eyebrow" style="margin-bottom:1rem;">Your full distribution</p>`;
+sorted.forEach(([k,score])=>{
+const pct = QUESTIONS.length ? Math.round((score/QUESTIONS.length)*100) : 0;
+const Pk = PROFILES[k];
+distHtml += `<div class="dist-row"><span class="name">${Pk.name} <span style="font-weight:400;color:var(--spruce-soft);">(${Pk.element})</span></span><span class="dist-bar"><i style="width:${pct}%"></i></span><span class="score">${score}</span></div>`;
+});
+document.getElementById("distBody").innerHTML = distHtml;
+
+document.getElementById("exprBody").innerHTML = `
+<p style="color:var(--spruce-soft);font-size:.95rem;margin:0 0 1.6rem;max-width:38em;">One more thing worth naming: the type you're most drawn to isn't always the one that scores highest above. If a type further down your distribution feels like more of a pull — even if it's not how you currently live or decorate — that's worth paying attention to. That gap can come from a few different places: social protection (a buffer against being judged or standing out), visual or sensory threshold (needing lower visual volume to feel calm, regardless of which type it is), or simply a direction you haven't tried yet. These call for different rooms doing different work — only you can tell which one fits, and it might be more than one at once.</p>
+<div class="result-card">
+<span class="label">Expression mode · ${oCount} outward · ${iCount} inward</span>
+<h2>${ER.label}</h2>
+<p>${ER.body}</p>
+<p style="font-size:.94rem;"><strong style="color:var(--spruce);">How to apply this:</strong> ${exprApplyNote(exprBucket)}</p>
+</div>`;
+
+document.getElementById("bar").style.width = "100%";
+show("results");
+}
+</script>
+</body>
+</html>
